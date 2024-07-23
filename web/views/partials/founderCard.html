@@ -1,0 +1,47 @@
+<section>
+    <div style="margin-top:30px; margin-bottom: 30px;">
+        <%- include ('cardHeader.html', {title: 'Founder Profiles', subtitle: 'An overview of the company founders.', underline: true, singleLine: false}); %> 
+    </div>
+<!--begin::Founder Card-->
+<ul style="padding: 0";>
+    <% for(var i = 0; i < execs.length; i++) { %>
+        <% if(execs[i]['title'].includes('Founder')){ %>
+            <li class="card-section-wrapper detail-card-section" style="display: flex; align-items: center;   justify-content: space-between;">
+                <div class="left" style="display: flex;
+                align-items: center;
+                justify-content: left;
+                margin-right: 60px;">
+                    <div class="me-7 mb-4">
+                        <div class="symbol symbol-80px symbol-lg-80px position-relative">
+                            <img style="border-radius: 100px; height: 80px; width: 80px;" src="<%= execs[i]['profile_pic'] %>" alt="image">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start flex-wrap" style="padding: 0 10px 0 0;">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center" style="font-size: 1rem;">
+                                <!-- <a target="_blank" href="<%= execs[i]['linkedin'] %>" class="text-gray-900 text-hover-primary fw-bold me-1"><%= execs[i]['name'] %></a> -->
+                                <h3 class="text-gray-900 fw-bold me-1" style="line-height: 5px;"><%= execs[i]['name'] %></h3>
+                                <!-- <a target="_blank" href="<%= execs[i]['linkedin'] %>" class="text-gray-900 text-hover-primary fw-bold me-1"><%= execs[i]['name'] %></a> -->
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <%= execs[i]['title'] %>
+                            </div>
+                            <div class="d-flex align-items-center mb-2" style="max-width: 375px;"><%= execs[i].linkedin_headline %></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right" style="border-left: 1px solid var(--primary-format-color);     padding-top: 40px;">
+                <h5 style="margin-left: 70px;">Experience and Highlights</h5>
+                <% for (let i = 0; i < tags.length; i ++) { %>
+                   
+                <% } %>
+                    <div style="width: 482px; height: 100px;"></div>
+                    <div style="width: 482px; height: 100px;"></div>
+                </div>
+            </li>
+         <% } %>
+    <% } %> 
+</ul>
+
+<!--end::Founder Card-->
+</section>

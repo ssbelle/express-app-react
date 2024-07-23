@@ -1,0 +1,22 @@
+<!--begin:: Competitive Analaysis TopCompanies -->
+<div class="<%= columnSetting %> card-section-wrapper-border" style="flex-shrink: 1;">
+    <div style="padding: 20px 0 15px 0px; border-bottom: 1.5px solid var(--primary-format-color); margin-bottom: 15px;">
+        <%- include('../../partials/cardHeader.html', {title: cardTitle, subtitle: '', underline: false, singleLine: false}); %>
+    </div>
+    <div class="" style="padding: 15px 0 0 0; display: flex; flex-wrap: wrap; gap: 1.75rem 1rem; justify-content: space-evenly; align-items: flex-start;">
+        <% for (let i = 0; i < cardData.length; i ++) { %>
+            <div class="d-flex col-3" style="align-items: flex-start;">
+                <div class="d-flex align-items-center symbol-60px symbol-fixed position-relative">
+                    <img class="me-2" style="max-width: 32px; margin-top: 6px;" src="<%= cardData[i].icon %>" alt="image">
+                </div>
+                <div style="display: flex; flex-direction: column; flex-grow:1;">
+                    <span style="color:var(--dark-blue-accent-color); font-weight: 700; font-size: var(--size-20); border-bottom: 1.5px solid var(--grey-font-icons); margin-bottom: 5px; padding-bottom: 3px;"><%= cardData[i].stat %></span>
+                    <span style="FONT-WEIGHT: 400;
+                    font-size: 0.75rem;
+                    color: var( --secondary-format-color);"><%= cardData[i].label %></span>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+<!--end:: Competitive Analaysis TopCompanies -->

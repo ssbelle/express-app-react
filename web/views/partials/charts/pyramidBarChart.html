@@ -1,0 +1,79 @@
+<div class="col-6 card-section-wrapper-border" style="flex-shrink: 1;">
+    <div style="padding: 20px 0 15px 0px; border-bottom: 1.5px solid var(--primary-format-color); margin-bottom: 10px;">
+        <%- include('../../partials/cardHeader.html', {title: cardTitle, subtitle: '', underline: false, singleLine: false}); %>
+    </div>
+    <div style="padding: 0 26px 26px 26px;">
+        <!-- <canvas id="bar">test</canvas> -->
+    </div>
+</div>
+
+
+<script>
+// const barAndLineChartLabels = <%- JSON.stringify(data.mock.YoYFundingChart[0].labels) %>;
+// const set1 = <%- JSON.stringify(data.mock.YoYFundingChart[1].set1) %>;
+// const set2 = <%- JSON.stringify(data.mock.YoYFundingChart[2].set2) %>;
+// const totalFundingTitle = <%- JSON.stringify(data.mock.YoYFundingChart[3].totalFunding) %>;
+const pyramidBarChartData = <%- JSON.stringify(data.mock.companiesByStageChart) %>;
+
+const chartLablss = pyramidBarChartData.map((e) => {
+    return e.label
+});
+
+const chartStats = pyramidBarChartData.map((e) => {
+    return e.dataPoint / 2
+});
+
+var chartdata = {
+  labels: chartLablss,
+  datasets: [
+    {
+      label: "",
+      stack: "Stack 0",
+      backgroundColor: "purple",
+      data: chartStats.map((k) => -k),
+    },
+    {
+      label: "",
+      stack: "Stack 0",
+      backgroundColor: "purple",
+      data: chartStats,
+    },
+  ],
+};
+
+var optionss = {
+    type: 'bar',
+    data: chartdata,
+    options: {
+  indexAxis: 'y',
+  plugins: {
+    tooltip: {
+      callbacks: {
+        label: (c) => {          
+          const value = Number(c.raw);
+          const positiveOnly = value < 0 ? -value : value;
+          return `${c.dataset.label}: ${positiveOnly.toString()}`;
+        },
+      },
+    },
+  },
+  scales: {
+    x: {
+        min: -1500,
+        max: 1500,
+        ticks: {
+          stepSize: 50,
+          callback: (v) => v < 0 ? -v : v,
+        },      
+      },
+  },
+}
+};
+
+
+
+var myyChart = new Chart(
+    document.getElementById('bar'),
+    optionss
+    );
+</script>

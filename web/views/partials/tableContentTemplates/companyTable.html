@@ -1,0 +1,49 @@
+<!--begin:: Company Table-->
+<section class="company-table">
+    <ul class="table-headers" style="align-items: center;">
+        <li class="d-flex flex-wrap flex-sm-nowrap col-12">
+            <% headers.map((item, index) => { %>
+                <div class="<%= columns[index] %>"><%= item %></div>
+            <% }) %> 
+        </li>
+    </ul>
+    <ul class="ps-0">
+    <% if(tableData.length === 0 ){ %>
+        <li class="d-flex flex-wrap flex-sm-nowrap col-12 table-list-item" >
+            <div class="<%= columns[0] %> d-flex align-items-center">
+                <span style="font-size: var(--size-14); font-weight: var(--font-weight-400); line-height: var(--size-20);">No Data Available</span>
+            </div>
+        </li>
+    <% } else{ %>  
+        <% for(var i = 0; i <  tableData.length; i++) { %>
+            <li class="d-flex flex-wrap flex-sm-nowrap col-12 table-list-item" >
+                <div class="<%= columns[0] %> d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                        <span><%= i %></span>
+                        <div class="symbol symbol-40px symbol-lg-40px position-relative" style="margin-left: 29px; margin-right: 12px;">
+                            <% if(tableData[i].logo.length === 0 ){ %>
+                                <div class="empty-logo-placeholder"></div>
+                            <% } else{ %>  
+                                <img style="border-radius: 100px; height: 40px; width: 40px;" src="<%= tableData[i]['logo'] %>" alt="image" />
+                            <% } %>
+                        </div>
+                        <span class="table-font-style-1" style="width: 150px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                            <%= tableData[i].company %>
+                        </span>
+                    </div>
+                </div>
+                <div class="<%= columns[1] %>  table-font-style-2 flex-grow-1 d-sm-none d-md-block" style=" white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                    <%= tableData[i].traction %>
+                </div>
+                <div class="<%= columns[2] %> table-font-style-2 flex-shrink-1">
+                    <%= tableData[i].recentFunding %>
+                </div>
+                <div class="<%= columns[3] %> table-font-style-2 flex-shrink-1 d-sm-none d-md-none d-lg-block">
+                    <%- include('../badge.html', {text: tableData[i].lastSeriesRaised, color: data.configs.companyTable.badges.seriesA}); %>
+                </div>
+            </li>
+        <% } %>
+    <% } %>
+    </ul> 
+</section>
+<!--end:: Company Table-->

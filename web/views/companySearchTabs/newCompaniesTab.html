@@ -1,0 +1,19 @@
+<!--begin::Form-->
+<form action="/search" id="searchform" name="searchform" method="post">
+    <!--begin::Card-->
+    <div class="card mb-7">
+        <!--begin::Card body-->
+        <div class="card-body">
+            <%- include ('../partials/tableCard.html', {contentType: 'search', tableData: data.companies, headers: data.configs.searchCompanyTable.headers, columnSettings: data.configs.searchCompanyTable.columnSettings, tableTitle: data.configs.searchCompanyTable.cardHeaderNewCompanies.title, subtitle: data.configs.searchCompanyTable.cardHeaderNewCompanies.subtitle, singleLine: false}); %>
+        </div>
+        <!--end::Card body-->
+    </div>
+    <!--end::Card-->
+</form>
+<!--end::Form-->
+
+                               
+                               
+                               
+                                 
+                

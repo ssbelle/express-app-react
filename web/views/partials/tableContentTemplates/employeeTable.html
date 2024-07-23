@@ -1,0 +1,63 @@
+<!--begin:: Employee Table-->
+<ul class="employee-table table-headers" style="align-items: center;">
+    <li class="d-flex flex-wrap flex-sm-nowrap col-12">
+        <% headers.map((item, index) => { %>
+            <div class="<%= columns[index] %>"><%= item %></div>
+        <% }) %> 
+    </li>
+</ul>
+<ul class="ps-0">
+    <% if(tableData.length === 0 ){ %>
+        <li class="d-flex flex-wrap flex-sm-nowrap col-12 table-list-item" >
+            <div class="<%= columns[0] %> d-flex align-items-center">
+                <span style="font-size: var(--size-14); font-weight: var(--font-weight-400); line-height: var(--size-20);">No Data Available</span>
+            </div>
+        </li>
+    <% } else{ %>  
+        <% for(var i = 0; i < tableData.length; i++) { %>
+            <li class="d-flex flex-wrap flex-sm-nowrap col-12 table-list-item">
+                <div class="<%= columns[0] %>" style="display: flex; align-items: center;">
+                    <div class="me-7 mb-4">
+                        <div class="symbol symbol-48px symbol-lg-48px symbol-fixed position-relative">
+                            <img style="border-radius: 100px;" src="<%= tableData[i]['profile_pic'] %>" alt="image">
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-start flex-wrap" style="padding: 0 10px 0 0;">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center" style="font-size: 0.9rem;">
+                                <a target="_blank" href="<%= tableData[i]['linkedin'] %>" class="text-gray-900 text-hover-primary fw-bold me-1" style="border-bottom: 1px solid; line-height: 0.9rem;"><%= tableData[i].name %></a>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <%= tableData[i]['title'] %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="<%= columns[1] %>">    
+                    <div class="d-flex justify-content-between align-items-start flex-wrap" style="padding: 0 40px 0 0;">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <%= tableData[i]['linkedin_headline'] %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- hardcoded to true until data is present or code goes live -->
+                <div class="<%= columns[2] %>"><%- include ('../../partials/badge.html', {text: `${true ? 'Yes' : 'No'}`, color: `${true ? 'employee-exits-badge-yes': 'employee-exits-badge-no'}` } ) %></div>
+                <div class="<%= columns[3] %>"><%- include ('../../partials/badge.html', {text: `${true ? 'Yes' : 'No'}`, color: `${true ? 'employee-exits-badge-yes': 'employee-exits-badge-no'}` } ) %></div>
+                <div class="<%= columns[4] %>" style="padding-left: 30px;">
+                    <!-- if employeeExperienceKeywordData is present in the data -->
+                    <% if(false){ %>
+                        <% for(var i = 0; i < employeeExperienceKeywordData.length; i++) { %>
+                            <%- include ('../../partials/badge.html', {text: employeeExperienceKeywordData[i].text, color: 'employee-badge-keyword' } ) %> 
+                        <% } %> 
+                    <% } %> 
+                </div>
+                <!-- TODO clarify and plug data into this page -->
+                <div class="<%= columns[5] %>" style="justify-content: end;">Lorem Ipsum</div>
+        
+            </li>
+        <% } %>
+    <% } %>
+</ul>
+<!--end:: Employee Table-->

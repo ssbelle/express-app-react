@@ -1,0 +1,63 @@
+<!--begin:: Funding Table-->
+<ul class="employee-table table-headers" style="align-items: center;">
+    <li class="d-flex flex-wrap flex-sm-nowrap col-12">
+        <% headers.map((item, index) => { %>
+            <div class="<%= columnSettings[index] %>"><%= item %></div>
+        <% }) %> 
+    </li>
+</ul>
+
+<ul class="ps-0">
+    <% if(tableData.length === 0 ){ %>
+        <li class="d-flex flex-wrap flex-sm-nowrap col-12 table-list-item" >
+            <div class="<%= columns[0] %> d-flex align-items-center">
+                <span style="font-size: var(--size-14); font-weight: var(--font-weight-400); line-height: var(--size-20);">No Data Available</span>
+            </div>
+        </li>
+    <% } else{ %>  
+        <% for(var i = 0; i < tableData.length; i++) { %>
+            <li class="d-flex flex-wrap flex-sm-nowrap col-12 table-list-item">
+                <div class="<%= columns[0] %>" style="display: flex; align-items: center;">
+                    <div class="d-flex">
+                        <% let series = tableData[i]['round_type'].split(' ').join(''); 
+                        let badgeClass = data.configs.fundingTable.badges[series.charAt(0).toLowerCase() + series.slice(1)];%>
+                        <%- include ('../../partials/badge.html', {text: tableData[i]['round_type'], color: badgeClass  } ) %>
+                    </div>
+                </div>
+                <div class="<%= columns[1] %>">    
+                    <div class="d-flex justify-content-between align-items-start flex-wrap" style="padding: 0 0px 0 0;">
+                        <div class="d-flex flex-column">
+                            <div class="d-flex align-items-center mb-2">
+                                <%= tableData[i]['amount'] %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="<%= columns[2] %>">
+                    <div class="d-flex flex-column">
+                        <div class="d-flex align-items-center mb-2">
+                            <%= tableData[i]['announcement_date'] %>
+                        </div>
+                    </div>
+                </div>
+                <div class="<%= columns[3] %>" style="flex-grow: 1;">
+                    <% if(tableData[i] !== undefined && tableData[i]['investors'].length > 0){ %>
+                        <% for(var j = 0; j < 4; j++) { %>
+                            <% const investor = tableData[i]['investors'][j]; 
+                           
+                            %>
+                            <% if (investor && investor.name.length > 0 ) { %>
+                                <%- include ('../../partials/badge.html', {text:  investor.name , color: 'investors-badge'  } ) %>
+                            <% } %>
+                        <% } %> 
+                  
+                    <% } %> 
+                </div>
+                <div class="<%= columns[4] %>" style="padding-left: 30px;">
+                    <a href="<%= tableData[i]['source_url'] %>"><span class="funding-table-view-link">View</span></a>
+                </div> 
+            </li>
+        <% } %>
+    <% } %>
+</ul>
+<!--end:: Funding Table-->

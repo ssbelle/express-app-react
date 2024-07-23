@@ -1,0 +1,9 @@
+<div class="<%= underline && title ? 'card-section-header' : null %>" style="<%= singleLine ? `display:flex; align-items:center;` : null %>">
+    <% if (title.length > 0) { %>
+    <h4 class="card-section-header-title" style="<%= singleLine ? `padding-right: 5px` : null %>"><%= title %></h4>
+    <% } %>
+    <% if (subtitle.length > 0) { %>
+    <div class="card-section-header-subtitle" style="padding-right: 5px;"><%= singleLine ? '|' : null %></div>
+    <span class="card-section-header-subtitle"><%= subtitle %></span>
+    <% } %>
+</div>

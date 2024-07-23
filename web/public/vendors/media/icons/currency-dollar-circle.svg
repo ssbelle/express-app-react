@@ -1,0 +1,11 @@
+<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="currency-dollar-circle">
+<path id="Icon" d="M9.16675 14.6667C9.16675 15.9553 10.2114 17 11.5001 17H13.6667C15.0475 17 16.1667 15.8807 16.1667 14.5C16.1667 13.1193 15.0475 12 13.6667 12H11.6667C10.286 12 9.16675 10.8807 9.16675 9.5C9.16675 8.11929 10.286 7 11.6667 7H13.8334C15.1221 7 16.1667 8.04467 16.1667 9.33333M12.6667 5.5V7M12.6667 17V18.5M22.6667 12C22.6667 17.5228 18.1896 22 12.6667 22C7.1439 22 2.66675 17.5228 2.66675 12C2.66675 6.47715 7.1439 2 12.6667 2C18.1896 2 22.6667 6.47715 22.6667 12Z" stroke="url(#paint0_linear_853_16795)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_853_16795" x1="22.6667" y1="2" x2="2.66675" y2="22" gradientUnits="userSpaceOnUse">
+<stop stop-color="#9B6AFF"/>
+<stop offset="1" stop-color="#432E7C"/>
+</linearGradient>
+</defs>
+</svg>

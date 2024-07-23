@@ -1,0 +1,20 @@
+<!--begin:: Leadership & Socials Tab Content -->
+<section style="display: flex; flex-wrap: wrap; width: 100%; padding: 20px 0;">
+    <%- include ('../partials/socials.html', {cardTitle: "Company Info", socialsData: data.socialMedia}); %>
+    <% 
+    const founderTitles = ["founder", "co-founder", "chief", "cto", "ceo", "coo", "cfo"];
+    const foundersData = data.employees.filter((e) => {
+       return e.title.split(" ").map((f) => {
+            return founderTitles.includes(f.toLowerCase())
+        })
+    }) 
+    %>
+    <% if(foundersData.length > 0){ %>
+        <%- include ('../partials/tableCard.html', {contentType: 'employee', tableData: foundersData, headers: data.configs.employeeTable.headers, columnSettings: data.configs.employeeTable.columnSettings, tableTitle: data.configs.employeeTable.cardHeaderFounders.title, subtitle: data.configs.employeeTable.cardHeaderFounders.subtitle, singleLine: false}); %>
+    <% } %>
+   
+    <% if(data.employees){ %>
+        <%- include ('../partials/tableCard.html', {contentType: 'employee', tableData: data.employees, headers: data.configs.employeeTable.headers, columnSettings: data.configs.employeeTable.columnSettings, tableTitle: data.configs.employeeTable.cardHeaderExecutives.title, subtitle: data.configs.employeeTable.cardHeaderExecutives.subtitle, singleLine: false}); %>
+    <% } %>
+</section>
+<!--end:: Leadership & Socials Tab Content -->

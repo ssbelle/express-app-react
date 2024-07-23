@@ -1,0 +1,50 @@
+<div class="tab-pane fade show active" id="kt_tab_pane_1" role="tabpanel" style="max-width: 1160px; flex-direction: column; align-items: left; margin-bottom: 30px; margin-top: 30px;">
+    <!--begin:: cardHeader-->
+    <%- include ('../partials/cardHeader.html', {title: 'Noteable Indicators', subtitle: 'An overview of notable company insights.', underline: true, singleLine: false}); %>
+    <!--end:: cardHeader-->
+
+    <!--begin:: badge-->
+    <% if(data.tags){ %>
+        <ul style="margin: 30px 0 30px 0; padding: 0;">
+            <% for (let i = 0; i < data.tags.length; i ++) { %>
+                <%- include ('../partials/badge.html', {text: `${ data.tags[i].category } - ${ data.tags[i].notes }`, color: data.configs.companyTable.badges.seriesA}); %>
+            <% } %>
+        </ul>
+    <% } %>
+    <!--end:: badge-->
+
+    <!--begin:: callout-->
+    <%- include ('../partials/callout.html'); %>
+    <!--end:: callout-->
+     
+    <!--begin:: highlights-->
+    <div class="notable-indicators-highlights">
+        <% if(data.headcount){ %>
+            <%- include ('../partials/highlightCard.html', {subtitle: "Headcount", info: data.headcount, details: 'calculate this', type: 'headcount'}); %>
+        <% } %>
+        <% if(data.hightlights){ %>
+            <% for (let i = 0; i < data.hightlights.length; i ++) { %>
+                <% let highlightTitle = data.hightlights[i].category === "Venture Backed" ? "Funding" : "" %>
+                <%- include ('../partials/highlightCard.html', {subtitle: highlightTitle, info: data.hightlights[i].category, details: data.hightlights[i].notes, type: 'highlight'}); %>
+            <% } %>
+        <% } %>
+    </div>
+    <!--end:: highlights-->
+
+    <!--begin:: detailCard-->
+    <%- include('../partials/detailCard.html'); %>
+    <!--end:: detailCard-->
+
+    <!--begin:: compAnalysisCard-->
+    <div>
+        <%- include('../partials/compAnalysisCard.html', {cardBorder: false}); %>
+     
+    </div>
+    <!--end:: compAnalysisCard-->
+
+    <!--begin:: tableCard-->
+    <% if(data.employees){ %>
+        <%- include ('../partials/tableCard.html', {contentType: 'employee', tableData: data.employees, headers: data.configs.employeeTable.headers, columnSettings: data.configs.employeeTable.columnSettings, tableTitle: data.configs.employeeTable.cardHeaderExecutives.title, subtitle: data.configs.employeeTable.cardHeaderExecutives.subtitle, singleLine: false }); %>
+    <% } %>
+    <!--end:: tableCard-->
+</div>

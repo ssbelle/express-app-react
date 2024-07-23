@@ -1,0 +1,120 @@
+{
+  "tableTypes": {
+    "company": "company",
+    "employee": "employee",
+    "watchlist": "watchlist",
+    "funding": "funding",
+    "search": "search"
+  },
+  "companyTable": {
+    "headers": [
+      "Company",
+      "Traction",
+      "Recent Funding",
+      "Last Series Raised",
+      ""
+    ],
+    "columnSettings": [
+      "col-3",
+      "col-5 flex-grow-1",
+      "col-2 flex-shrink-1",
+      "col-2 flex-shrink-1 d-sm-none d-md-none d-lg-block"
+    ],
+    "cardHeaderCompany": {
+      "title": "Top Competitors"
+    },
+    "badges": {
+      "seriesA": "company-badge-seriesA",
+      "seriesB": "company-badge-seriesB",
+      "seriesC": "company-badge-seriesC",
+      "seriesSeed": "company-badge-seriesSeed"
+    }
+  },
+  "employeeTable": {
+    "headers": [
+      "Executive Team",
+      "Previously At",
+      "Previous Exits",
+      "Early Employee",
+      "Industry Experience",
+      "Other"
+    ],
+    "columnSettings": ["col-3", "col-3", "col-2", "col-1", "col-2", "col-1"],
+    "cardHeaderExecutives": {
+      "title": "Executive Profiles",
+      "subtitle": "Executive overview, and previous experience."
+    },
+    "cardHeaderFounders": {
+      "title": "Founder Profile",
+      "subtitle": "Founder overview, and previous experience."
+    },
+    "badges": {
+      "yes": "employee-exits-badge-yes",
+      "no": "employee-exits-badge-no",
+      "companyName": "employee-exits-company-name",
+      "additionalCount": "employee-badge-additional-count",
+      "keyword": "employee-badge-keyword"
+    }
+  },
+  "watchlistTable": {
+    "headers": [
+      "Company Information",
+      "Watch Date",
+      "Series",
+      "Industry",
+      "Saved Filter Group",
+      "Notes"
+    ],
+    "columnSettings": ["col-4", "col-6", "col-1", "col-1"]
+  },
+  "fundingTable": {
+    "headers": ["Series", "Amount", "Date", "Investors", "Source"],
+    "columnSettings": ["col-1", "col-1", "col-2", "col-6", "col-2"],
+    "cardHeaderFunding": {
+      "title": "Funding",
+      "subtitle": ""
+    },
+    "badges": {
+      "investors": "investors-badge",
+      "seriesA": "company-badge-seriesA",
+      "seriesB": "company-badge-seriesB",
+      "seriesC": "company-badge-seriesC",
+      "seed": "company-badge-seriesSeed"
+    }
+  },
+  "searchCompanyTable": {
+    "headers": [
+      "Watch",
+      "Company Information",
+      "Funding",
+      "Series",
+      "New",
+      "Industry",
+      "Customer",
+      "Saved Filter Group"
+    ],
+    "columnSettings": [
+      "col-1 flex-shrink-1",
+      "col-4 flex-grow-1",
+      "col-1 flex-shrink-1",
+      "col-1 flex-shrink-1",
+      "col-1 flex-shrink-1",
+      "col-1 flex-shrink-1",
+      "col-1 flex-shrink-1",
+      "col-3"
+    ],
+    "cardHeaderNewCompanies": {
+      "title": "New  Companies",
+      "subtitle": "Companies new to the database inside and outside of your filter groups."
+    },
+    "badges": {
+      "seriesA": "company-badge-seriesA",
+      "seriesB": "company-badge-seriesB",
+      "seriesC": "company-badge-seriesC",
+      "seed": "company-badge-seriesSeed",
+      "new": "company-badge-new-label",
+      "industry": "company-badge-industry",
+      "savedGroup": "company-saved-filter-group-badge"
+    }
+  }
+}

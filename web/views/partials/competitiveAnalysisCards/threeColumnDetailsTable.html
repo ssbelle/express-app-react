@@ -1,0 +1,73 @@
+<!--begin:: Competitive Analaysis ThreeColumnDetailsTable -->
+<% for (let i = 1; i < cardData.length; i ++) { %>
+    <div class="d-flex align-items-center" style="padding: 0px 10px 15px 5px;">
+        <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--primary-format-grey-color);"></div>
+        <div class="d-flex flex-column flex-grow-3">
+            <span class="d-flex competitive-analysis-card" style="font-weight:400;">
+                <%= cardData[i].companyName %>
+            </span>
+            <span class="competitive-analysis-card" style="font-size: 0.58rem; line-height: 10px; color:var(--teriary-text-color-grey);">
+                (<%= cardData[i].companyStat %>)
+            </span>
+        </div>
+    </div>
+<% } %>
+
+
+<div style="border-bottom: 1.5px solid var(--secondary-format-color);padding-bottom: 5px;">
+    Top Investors
+</div>
+<div class="d-flex justify-content-between" style=" font-size:0.75rem; 
+font-weight:700; 
+padding: 3px 10px 0 5px;
+color: var(--primary-text-color-black); ">
+    <span style="flex-grow:0.5;">Stage</span>
+    <span style="flex-grow:2;">Investor</span>
+    <span style="flex-grow: 0;"># Portfolio</span>
+</div>
+<div style="padding: 5px 0 0 0; border-bottom: 1px solid var(--primary-format-color);
+margin-bottom: 30px;">
+    <% for (let i = 0; i < data.mock.topExitsData.length; i ++) { %>
+        <div style="display: flex; align-items: center;
+        border-top: 1px solid var(--primary-format-color); FONT-WEIGHT: 400;
+         font-size: 0.69rem;
+         color: var( --secondary-format-color); background: var(--tertiary-format-color);">
+         <div style="width: 54px;
+         display: flex;">
+            <span style="
+            flex-wrap: wrap; margin: 0 0 0 8px;"><%= data.mock.topExitsData[i].type %>
+            </span>
+        </div>
+         <div class="d-flex company-list" style="flex-direction: column; background-color: white;
+         flex-grow: 2;
+         ">
+            <% for (let j = 0; j < data.mock.topExitsData[i].companyData.length; j ++) { %>
+    
+
+            <div class="company-item" style="display: flex;   border-top: 1px solid var(--primary-format-color);   align-items: center;padding: 5px 10px 5px 5px;
+     ">
+    <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--tertiary-format-color);"></div>
+    <div style="display: flex; flex-direction: column; flex-grow: 3;">
+        <span style="FONT-WEIGHT: 400;
+        font-size: 0.75rem;
+        color: var( --secondary-format-color);
+        padding-left: 10px;"><%= data.mock.topExitsData[i].companyData[j].companyName %></span>
+        <span style="FONT-WEIGHT: 500;
+        font-size: 0.58rem;
+        line-height: 10px;
+        color:var(--teriary-text-color-grey);
+        padding-left: 10px;">(<%= data.mock.topExitsData[i].companyData[j].companyStat %>)</span>
+    </div>
+    <span style="FONT-WEIGHT: 400;
+    font-size: 0.75rem;
+    color: var( --secondary-format-color);
+    padding-left: 10px;"><%= data.mock.topExitsData[i].companyData[j].companyPrice %></span>
+    </div>
+    
+            <% } %>
+         </div>
+        </div>
+    <% } %>
+</div>
+
+<!--end:: Competitive Analaysis ThreeColumnDetailsTable -->

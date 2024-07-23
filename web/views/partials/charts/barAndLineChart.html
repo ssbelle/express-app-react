@@ -1,0 +1,83 @@
+<div class="col-6 card-section-wrapper-border" style="flex-shrink: 1; max-width: 50%;">
+    <div style="padding: 20px 0 15px 0px; border-bottom: 1.5px solid var(--primary-format-color); margin-bottom: 10px;">
+        <%- include('../../partials/cardHeader.html', {title: cardTitle, subtitle: '', underline: false, singleLine: false}); %>
+    </div>
+    <div style="padding: 0 26px 26px 26px;"><canvas id="attach-bar-and-line-chart-competitive-analysis-tab">test</canvas>
+    </div>
+</div>
+
+
+<script>
+const barAndLineChartLabels = <%- JSON.stringify(data.mock.YoYFundingChart[0].labels) %>;
+const set1 = <%- JSON.stringify(data.mock.YoYFundingChart[1].set1) %>;
+const set2 = <%- JSON.stringify(data.mock.YoYFundingChart[2].set2) %>;
+const totalFundingTitle = <%- JSON.stringify(data.mock.YoYFundingChart[3].totalFunding) %>;
+
+const cardData = {
+  labels: barAndLineChartLabels,
+  datasets: [
+    {
+      label: '$ Funding',
+      data: set1,
+      borderColor: "#205288",
+      backgroundColor: "#205288",
+      stack: 'combined',
+      type: 'bar',
+      z: 0
+    },
+    {
+      label: '# Rounds',
+      data: set2,
+      borderColor: "#f0a342",
+      backgroundColor: "#f0a342",
+      stack: 'combined',
+      z: 10
+    }
+  ]
+};
+
+const conf = {
+  type: 'line',
+  data: cardData,
+  options: {
+    plugins: {
+      legend: {
+      position:"bottom",
+      display: true,
+      labels: {
+        boxWidth: 20,
+        boxHeight: 12
+      }
+    },
+      title: {
+        display: true,
+        text: `Total Funding: ${totalFundingTitle}`,
+        padding: {
+          top: 0,
+          bottom: 30
+        },
+        align: "start",
+      }
+    },
+    scales: {
+      y: {
+        display: false,
+        grid:{
+          display:false
+        }
+      },
+      x: {
+        grid:{
+          display:false
+        }
+      }
+    }
+  },
+};
+
+
+var myChart = new Chart(
+    document.getElementById('attach-bar-and-line-chart-competitive-analysis-tab'),
+    conf
+    );
+</script>

@@ -1,0 +1,43 @@
+ <!--begin::Table Card-->
+ <section class="table-card" style="width: 100%;">
+    <div class="card-section-wrapper-border">
+        <div style="padding: 20px 0 0px 0px; display: flex; justify-content: space-between;">
+            <%- include('cardHeader.html', {title: tableTitle, subtitle: subtitle, underline: false, singleLine: singleLine ? singleLine : false }); %>
+            <% if(contentType === "search"){ %> 
+                <div style="display: flex; flex-direction: column; align-items: end;">
+                    <!--begin::Input group-->
+                    <%- include ('../searchButton.html') %>
+                    <button type="button"  class="btn" style="border: none; background: #fff; padding: 5px 26px 0 0;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <span class="card-section-header-subtitle">Filters</span>
+                    </button>
+                </div>
+                <% } %> 
+        </div>
+
+        <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <%- include('searchFilters.html'); %>
+  </div>
+        
+        <ul style="padding: 0;">
+            <% if(contentType === "employee"){ %> 
+                <%- include('tableContentTemplates/employeeTable.html', {tableData: tableData, columns: columnSettings, headers: headers });  %>
+            <% } %> 
+            <% if(contentType === "company"){ %> 
+                <%- include('tableContentTemplates/companyTable.html', {tableData: tableData, columns: columnSettings, headers: headers });  %>
+            <% } %> 
+            <% if(contentType === "funding"){ %> 
+                <%- include('tableContentTemplates/fundingTable.html', {tableData: tableData, columns: columnSettings, headers: headers });  %>
+            <% } %> 
+            <% if(contentType === "search"){ %> 
+                <%- include('tableContentTemplates/searchCompanyTable.html', {tableData: tableData, columns: columnSettings, headers: headers });  %>
+            <% } %> 
+
+        </ul>
+    </div>
+</section>
+<!--end::Table Card-->
+<script type="text/javascript">
+    var _userSavedSearches = '{ "usersearches" : <%- JSON.stringify(data.savedSearches) %> }';
+</script>
+

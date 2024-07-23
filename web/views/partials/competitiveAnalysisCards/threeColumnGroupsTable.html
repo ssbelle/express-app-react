@@ -1,0 +1,29 @@
+<!--begin:: Competitive Analaysis ThreeColumnGroupsTable -->
+<div style="border-bottom: 1.5px solid var(--secondary-format-color); padding-bottom: 5px;">
+    <%= cardTitle %>
+</div>
+<div class="d-flex justify-content-between" style="font-size:0.75rem; font-weight:700; padding: 3px 10px 0 5px; color: var(--primary-text-color-black);">
+    <span style="flex-grow:0.5;"><%= cardColumnTitle[0] %></span>
+    <span style="flex-grow:2;"><%= cardColumnTitle[1] %></span>
+    <span style="flex-grow: 0;"><%= cardColumnTitle[2] %></span>
+</div>
+<div style="padding: 5px 0 0 0; border-bottom: 1px solid var(--primary-format-color); margin-bottom: 30px;">
+    <% for (let i = 0; i < cardData.length; i ++) { %>
+        <div class="d-flex align-items-center" style="display: flex; align-items: center; border-top: 1px solid var(--primary-format-color); FONT-WEIGHT: 400; font-size: 0.69rem; color: var( --secondary-format-color); background: var(--tertiary-format-color);">
+            <div style="max-width: 54px; display: flex;">
+                <span style="flex-wrap: wrap; margin: 0 0 0 8px;">
+                    <%= cardData[i].stage %>
+                </span>
+            </div>
+            <div class="d-flex" style="flex-direction: column; background-color: white; flex-grow: 2; padding: 8.75px 20px;">
+                <% for (let j = 0; j < cardData[i].investorData.length; j ++) { %>
+                    <div style="justify-content: space-between; display: flex;">
+                        <span><%= cardData[i].investorData[j].name %></span>
+                        <span><%= cardData[i].investorData[j].portfolio %></span>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    <% } %>
+</div>
+<!--end:: Competitive Analaysis ThreeColumnGroupsTable -->

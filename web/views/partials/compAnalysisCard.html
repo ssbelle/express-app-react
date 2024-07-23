@@ -1,0 +1,30 @@
+ <!--begin::Comp Analysis Card-->
+ <section id="comp-analysis-card-wrapper" class="table-card">
+    <div class="<% cardBorder ? 'card-section-wrapper' : null %>">
+        <div style="padding: 20px 0 20px 0px;">
+            <%- include('cardHeader.html', {title: 'Industry Competitive Summary', subtitle: 'Summary of top companies and funders of ContentStack', underline: true, singleLine: false}); %>
+        </div>
+        
+        <div class="d-flex justify-content-around" style="padding: 0 60px 0 30px; gap: var(--spacer-2-5);">
+            <% if(data.mock.fundingRoundsData){ %>
+            <div class="g-col-4 w-100 comp-analysis-card">
+                <%- include ('../partials/competitiveAnalysisCards/fundingRoundsCard.html', {cardData: data.mock.fundingRoundsData, cardTitle: 'Top Funding Rounds in last 2y', cardColumnTitle:['Company', 'Round Details']}); %>
+            </div>
+            <% } %>
+
+            <% if(data.mock.topInvestorsData){ %>
+                <div class="g-col-4 w-100 comp-analysis-card">
+                    <%- include ('../partials/competitiveAnalysisCards/topInvestorsCard.html', {cardData: data.mock.topInvestorsData, cardTitle: 'Top Investors', cardColumnTitle:['Stage', 'Investor', '# Portfolio']}); %>
+                </div>
+            <% } %>
+
+
+            <% if(data.mock.topExitsData){ %>
+                <div class="g-col-4 w-100 comp-analysis-card">
+                    <%- include ('../partials/competitiveAnalysisCards/topInvestorsCard.html', {cardData: data.mock.topInvestorsData, cardTitle: 'Top Exits (within the last 10 years)', cardColumnTitle:['Type', 'Company', 'Acq. Price / IPO Mcap']}); %>
+                </div>
+            <% } %>
+
+        </div>
+    </div>
+</section>

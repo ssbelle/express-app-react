@@ -1,0 +1,36 @@
+
+    <% if(color === "employee-exits-badge-yes"){ %>
+        <div class="badge badge-primary <%= color %>" style="padding: 3px 8px; border-radius: 100px;">
+            <% if(color === "employee-exits-badge-yes" || color === "employee-exits-badge-no" ){ %>
+                <div class="badge-dot" style="width: 8px; height: 8px; border-radius: 100px; margin-right:4px;"></div>
+            <% } %>
+            <%= text %>
+        </div>
+        <!-- if companyName is present in data -->
+        <% if(false){ %>
+            <div class="badge badge-primary employee-exits-company-name" style="padding: 3px 8px; border-radius: 100px;">
+                <%= companyName %>
+            </div>
+        <% } %>
+        <!--  if additionalPreviousExits is present in the data -->
+        <% if(false){ %>
+            <div class="badge badge-primary employee-badge-additional-count" style="padding: 3px 8px; border-radius: 100px;">
+                <%= additionalPreviousExits %>
+            </div>
+        <% } %>
+        <!-- if early employee calc is present in data -->
+        <% if(false){ %>
+            <div class="badge badge-primary employee-badge-additional-count" style="padding: 3px 8px; border-radius: 100px;">
+                <%= earlyEmployeeCalculation %>
+            </div>
+        <% } %>
+
+    <% } else{ %>  
+    <div class="badge badge-primary <%= color %>" style="padding: 3px 8px; border-radius: 100px;">
+        <% if(color === "employee-exits-badge-no" ){ %>
+            <div class="badge-dot" style="width: 8px; height: 8px; border-radius: 100px; margin-right:4px;"></div>
+        <% } %>
+        <%= text %>
+    </div>
+    <% } %>
+

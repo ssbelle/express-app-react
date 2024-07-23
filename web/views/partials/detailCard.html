@@ -1,0 +1,52 @@
+ <!--begin::Detail Card-->
+<section class="detail-card">
+    <div class="card-section-wrapper detail-card-section" style="font-size: 16px; font-weight: 500;">
+        <%- include('cardHeader.html', {title: 'About', subtitle: '', underline: true, singleLine: false}); %>
+        <% if(data.founding_date){ %>
+        <div class="founding-date" style=" margin-top: 10px;">
+            <span style="color:rgba(107, 114, 128, 1); margin-right: 10px;">FOUNDING DATE:</span>
+            <span style="color:rgba(17, 25, 40, 1);"><%= new Date(data.founding_date).toLocaleString('en-us',{day: 'numeric', month: 'short', year: 'numeric'}) %></span>
+        </div>
+        <% } %>
+        <% if(data.legal_name){ %>
+        <div class="legal-name">
+            <span style="color:rgba(107, 114, 128, 1); margin-right: 10px;">LEGAL NAME:</span>
+            <span style="color:rgba(17, 25, 40, 1);"><%= `${data.legal_name}` %></span>
+        </div>
+        <% } %>
+        <% if(data.headcount){ %>
+        <div class="ownership-type">
+            <span style="color:rgba(107, 114, 128, 1); margin-right: 10px;">HEADCOUNT:</span>
+            <span style="color:rgba(17, 25, 40, 1);"><%= data.headcount %></span>
+        </div>
+        <% } %>
+        <% if(data.ownership_type){ %>
+        <div class="ownership-type">
+            <span style="color:rgba(107, 114, 128, 1); margin-right: 10px;">OWNERSHIP:</span>
+            <span style="color:rgba(17, 25, 40, 1);"><%= data.ownership_type %></span>
+        </div>
+        <% } %>
+        <% if(data.company_type){ %>
+        <div class="company-type">
+            <span style="color:rgba(107, 114, 128, 1); margin-right: 10px;">TYPE:</span>
+            <span style="color:rgba(17, 25, 40, 1);"><%= data.company_type %></span>
+        </div>
+        <% } %>
+        <% if(data.customer_type){ %>
+        <div class="customer-type">
+            <span style="color:rgba(107, 114, 128, 1); margin-right: 10px;">CUSTOMER:</span>
+            <span style="color:rgba(17, 25, 40, 1);"><%= `${data.customer_type.toUpperCase()}` %></span>
+        </div>
+        <% } %>
+        <% if(data.score){ %>
+        <div class="rank">
+            <span style="color:rgba(107, 114, 128, 1); margin-right: 10px;">RANK:</span>
+            <span style="color:rgba(17, 25, 40, 1);"><%= data.score %></span>
+        </div>
+        <% } %>
+    </div>
+</section>
+<!--end::Detail Card-->
+
+
+<link href="/stylesheets/card.css" rel="stylesheet" />

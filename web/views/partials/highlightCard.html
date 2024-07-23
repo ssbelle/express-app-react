@@ -1,0 +1,46 @@
+<!-- begin::Highlight Card -->
+<section class="highlight-card-wrapper card-section-wrapper" style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; flex-direction: column; "> 
+        <h6><%= subtitle %></h6>
+        <span class="highlight-info">
+            <% if(type === 'headcount'){ %>
+                <%= info %>
+                <% } %>
+            <% if(type === 'highlight'){ %>
+                <div>
+                    <%= info %>
+                    <img class="" style="margin-left: 10px;" src="/vendors/media/icons/filledCheckMark.svg" alt="settings-icon" />
+                </div>
+                
+            <% } %>
+        </span>
+       
+            <span class="highlight-details">
+                <% if(type === 'headcount'){ %>
+                    <div>
+                        <img class="" style="transform: rotate(180deg); margin: 10px 0px 20px!important;" src="/vendors/media/icons/arrow-up.svg" alt="settings-icon" />
+                        <span>4</span>
+                        <span style="margin-left: 10px;"> 30 days</span>
+                    </div>
+                   
+                <% } %>
+                <% if(type === 'highlight'){ %>
+                    <%= details %>
+                <% } %>
+            
+            </span>
+       
+        
+    </div>
+    <div>
+        <% if(type === 'headcount'){ %>
+        <img class="" src="/vendors/media/icons/headcountChart.svg" alt="settings-icon" />
+        <% } %>
+    </div>
+    <!-- <div><div style="width: 328px;"><canvas id="acquisitions">test</canvas></div></div> -->
+</section>
+
+
+
+
+<!-- end::Highlight Card -->

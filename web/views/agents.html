@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!--begin::Head-->
+<head>
+    <%- include('partials/head.html'); %>
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-sidebar-stacked="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    <!--begin::App-->
+    <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+        <!--begin::Page-->
+        <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+            <%- include('partials/header.html'); %>
+            <!--begin::Wrapper-->
+            <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+                <!--begin::Sidebar-->
+                <div id="kt_app_sidebar" class="app-sidebar" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+                    <!--begin::Sidebar primary-->
+                    <%- include('partials/sidebar.html'); %>
+                    <!--end::Sidebar primary-->
+                </div>
+                <!--end::Sidebar-->
+                <!--begin::Main-->
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    <!--begin::Content wrapper-->
+                    <div class="d-flex flex-column flex-column-fluid">
+                        <!--begin::Content-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid pt-1">
+                            <!--begin::Content container-->
+                            <div id="kt_app_content_container" class="app-container container-fluid pt-4">
+                                <div class="tab-content">
+                                    <!--begin::Tab pane-->
+                                    <div id="kt_project_users_table_pane" class="tab-pane fade show active">
+                                        <!--begin::Card-->
+                                        <div class="card card-flush bg-transparent">
+                                            <!--begin::Card body-->
+                                            <div class="card-body p-0 pt-10">
+                                                <!--begin::Table container-->
+
+                                                <div class="row">
+                                                    <div class="col-auto">
+                                                        <div class="d-lg-flex flex-column flex-lg-row-auto w-lg-325px">
+                                                            <div class="accordion" id="kt_accordionuser_1">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header mt-5 ms-7" id="kt_accordionuser_1_header_1">
+                                                                        <span class="card-label fw-bold text-gray-900 fs-6">Your Agents</span>
+                                                                        <a href="/agents" class="addagent" title="Create a new agent"><i class="ki-solid ki-plus-square fs-2"></i></a>
+                                                                    </h2>
+                                                                    <div id="kt_accordionuser_1_body_1" class="accordion-collapse collapse show" aria-labelledby="kt_accordionuser_1_header_1">
+                                                                        <div class="accordion-body">
+                                                                            <% if(data.useragents.length < 1) { %>
+                                                                            <span class="fs-7">Create your first agent!</span>
+                                                                            <% } %>
+                                                                            <% for(var i = 0; i < data.useragents.length; i++) { %>
+                                                                            <!--begin::Item-->
+                                                                            <div class="d-flex flex-stack mt-2">
+                                                                                <!--begin::Section-->
+                                                                                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
+                                                                                    <!--begin:Author-->
+                                                                                    <a href="/agents/<%= data.useragents[i]['id'] %>" class="btn btn-bg-light w-100 text-start <%= data.agentinfo.id === data.useragents[i]['id'] ? 'templateborderdashed' : '' %>">
+                                                                                        <div class="flex-grow-1 me-2">
+                                                                                            <span class="text-gray-800 text-hover-primary fs-7"><%= data.useragents[i]["name"] %></span>
+                                                                                            <span class="text-muted fw-semibold d-block fs-7"><%= new Date(data.useragents[i]["create_date"]).toLocaleString('en-us',{day: 'numeric', month:'short', year:'numeric'}) %></span>
+                                                                                        </div>
+                                                                                    </a>
+                                                                                    <!--end:Author-->
+                                                                                </div>
+                                                                                <!--end::Section-->
+                                                                            </div>
+                                                                            <!--end::Item-->
+                                                                            
+                                                                            <% } %>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <div class="card mb-5 mb-xl-8">
+                                                            <div class="card-header">
+                                                                <% if(!data.agentinfo.id) { %>
+                                                                    <h3 class="card-title">Create a new Agent</h3>
+                                                                <% } else { %>
+                                                                    <h3 class="card-title"><%= data.agentinfo.name %></h3>
+                                                                <% } %>
+
+                                                                <% if(data.agentinfo.id) { %>
+                                                                    <button class="btn btn-danger diabledagentBtn" id="diabledagentBtn" onclick="setDisable();">
+                                                                        <span class="indicator-label">
+                                                                            Delete
+                                                                        </span>
+                                                                        <span class="indicator-progress">
+                                                                            Deleting <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                        </span>
+                                                                    </button>
+                                                                <% } %>
+                                                            </div>
+
+                                                            <div class="card-body pt-5">
+
+                                                                <div class="py-lg-5 px-lg-1">
+                                                                    <!--begin::Stepper-->
+                                                                    <div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_modal_create_app_stepper" data-kt-stepper="true">
+                                                                        <!--begin::Aside-->
+                                                                        <div class="d-flex justify-content-center justify-content-xl-start flex-row-auto w-100 w-xl-300px">
+                                                                            <!--begin::Nav-->
+                                                                            <div class="stepper-nav ps-lg-10">
+                                                                                <!--begin::Step 1-->
+                                                                                <div class="stepper-item current" data-kt-stepper-element="nav">
+                                                                                    <!--begin::Wrapper-->
+                                                                                    <div class="stepper-wrapper">
+                                                                                        <!--begin::Icon-->
+                                                                                        <div class="stepper-icon w-40px h-40px">
+                                                                                            <i class="ki-outline ki-check stepper-check fs-2"></i>
+                                                                                            <span class="stepper-number">1</span>
+                                                                                        </div>
+                                                                                        <!--end::Icon-->
+                                                                                        <!--begin::Label-->
+                                                                                        <div class="stepper-label">
+                                                                                            <h3 class="stepper-title">
+                                                                                                Details
+                                                                                            </h3>
+
+                                                                                            <div class="stepper-desc">
+                                                                                                Name your Agent
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end::Label-->
+                                                                                    </div>
+                                                                                    <!--end::Wrapper-->
+                                                                                    <!--begin::Line-->
+                                                                                    <div class="stepper-line h-40px"></div>
+                                                                                    <!--end::Line-->
+                                                                                </div>
+                                                                                <!--end::Step 1-->
+                                                                                <!--begin::Step 2-->
+                                                                                <div class="stepper-item" data-kt-stepper-element="nav">
+                                                                                    <!--begin::Wrapper-->
+                                                                                    <div class="stepper-wrapper">
+                                                                                        <!--begin::Icon-->
+                                                                                        <div class="stepper-icon w-40px h-40px">
+                                                                                            <i class="ki-outline ki-check stepper-check fs-2"></i>
+                                                                                            <span class="stepper-number">2</span>
+                                                                                        </div>
+                                                                                        <!--begin::Icon-->
+                                                                                        <!--begin::Label-->
+                                                                                        <div class="stepper-label">
+                                                                                            <h3 class="stepper-title">
+                                                                                                Data source
+                                                                                            </h3>
+
+                                                                                            <div class="stepper-desc">
+                                                                                                Select your data source
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--begin::Label-->
+                                                                                    </div>
+                                                                                    <!--end::Wrapper-->
+                                                                                    <!--begin::Line-->
+                                                                                    <div class="stepper-line h-40px"></div>
+                                                                                    <!--end::Line-->
+                                                                                </div>
+                                                                                <!--end::Step 2-->
+                                                                                <!--begin::Step 3-->
+                                                                                <div class="stepper-item" data-kt-stepper-element="nav">
+                                                                                    <!--begin::Wrapper-->
+                                                                                    <div class="stepper-wrapper">
+                                                                                        <!--begin::Icon-->
+                                                                                        <div class="stepper-icon w-40px h-40px">
+                                                                                            <i class="ki-outline ki-check stepper-check fs-2"></i>
+                                                                                            <span class="stepper-number">3</span>
+                                                                                        </div>
+                                                                                        <!--end::Icon-->
+                                                                                        <!--begin::Label-->
+                                                                                        <div class="stepper-label">
+                                                                                            <h3 class="stepper-title">
+                                                                                                Memo Template
+                                                                                            </h3>
+
+                                                                                            <div class="stepper-desc">
+                                                                                                Select the memo template
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end::Label-->
+                                                                                    </div>
+                                                                                    <!--end::Wrapper-->
+                                                                                    <!--begin::Line-->
+                                                                                    <div class="stepper-line h-40px"></div>
+                                                                                    <!--end::Line-->
+                                                                                </div>
+                                                                                <!--end::Step 3-->
+                                                                                <!--begin::Step 4-->
+                                                                                <div class="stepper-item" data-kt-stepper-element="nav">
+                                                                                    <!--begin::Wrapper-->
+                                                                                    <div class="stepper-wrapper">
+                                                                                        <!--begin::Icon-->
+                                                                                        <div class="stepper-icon w-40px h-40px">
+                                                                                            <i class="ki-outline ki-check stepper-check fs-2"></i>
+                                                                                            <span class="stepper-number">4</span>
+                                                                                        </div>
+                                                                                        <!--end::Icon-->
+                                                                                        <!--begin::Label-->
+                                                                                        <div class="stepper-label">
+                                                                                            <h3 class="stepper-title">
+                                                                                                Output Integration
+                                                                                            </h3>
+
+                                                                                            <div class="stepper-desc">
+                                                                                                Select the destination
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end::Label-->
+                                                                                    </div>
+                                                                                    <!--end::Wrapper-->
+                                                                                    <!--begin::Line-->
+                                                                                    <div class="stepper-line h-40px"></div>
+                                                                                    <!--end::Line-->
+                                                                                </div>
+                                                                                <!--end::Step 4-->
+                                                                                <!--begin::Step 5-->
+                                                                                <div class="stepper-item mark-completed" data-kt-stepper-element="nav">
+                                                                                    <!--begin::Wrapper-->
+                                                                                    <div class="stepper-wrapper">
+                                                                                        <!--begin::Icon-->
+                                                                                        <div class="stepper-icon w-40px h-40px">
+                                                                                            <i class="ki-outline ki-check stepper-check fs-2"></i>
+                                                                                            <span class="stepper-number">5</span>
+                                                                                        </div>
+                                                                                        <!--end::Icon-->
+                                                                                        <!--begin::Label-->
+                                                                                        <div class="stepper-label">
+                                                                                            <h3 class="stepper-title">
+                                                                                                Completed
+                                                                                            </h3>
+
+                                                                                            <div class="stepper-desc">
+                                                                                                Review and <%= data.agentinfo.id ? "Update" : "Submit" %>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <!--end::Label-->
+                                                                                    </div>
+                                                                                    <!--end::Wrapper-->
+                                                                                </div>
+                                                                                <!--end::Step 5-->
+                                                                            </div>
+                                                                            <!--end::Nav-->
+                                                                        </div>
+                                                                        <!--begin::Aside-->
+                                                                        <!--begin::Content-->
+                                                                        <div class="flex-row-fluid py-lg-5 px-lg-15 m-auto">
+                                                                            <!--begin::Form-->
+                                                                            <form class="form fv-plugins-bootstrap5 fv-plugins-framework" id="kt_modal_create_app_form" method="post" action="/agents/save">
+                                                                                <!--begin::Step 1-->
+                                                                                <div class="current" data-kt-stepper-element="content">
+                                                                                    <div class="w-100">
+                                                                                        <!--begin::Input group-->
+                                                                                        <div class="fv-row mb-10 fv-plugins-icon-container">
+                                                                                            <!--begin::Label-->
+                                                                                            <label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+                                                                                                <span class="required">Agent Name</span>
+                                                                                            </label>
+                                                                                            <!--end::Label-->
+                                                                                            <!--begin::Input-->
+                                                                                            <input type="text" class="form-control form-control-lg form-control-solid" required name="name" placeholder="" value="<%= data.agentinfo.name %>">
+                                                                                            <!--end::Input-->
+                                                                                            <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                                                                        </div>
+                                                                                        <!--end::Input group-->
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--end::Step 1-->
+                                                                                <!--begin::Step 2-->
+                                                                                <div data-kt-stepper-element="content">
+                                                                                    <div class="w-100">
+                                                                                        <!--begin::Input group-->
+                                                                                        <div class="fv-row fv-plugins-icon-container">
+                                                                                            <!--begin::Label-->
+                                                                                            <label class="d-flex align-items-center fs-5 fw-semibold mb-4">
+                                                                                                <span class="required">Select Input source</span>
+                                                                                            </label>
+                                                                                            <!--end::Label-->
+                                                                                            <select class="form-select form-select mb-3" name="savedsearchoption" id="savedsearchoption" data-control="select2" data-placeholder="Select your Saved search" required>
+                                                                                                <option></option>
+                                                                                                <% for(var i = 0; i < data.savedsearches.length; i++) { %>
+                                                                                                <option value="<%= data.savedsearches[i]['id'] %>" <%= data.savedsearches[i]['id'] === data.agentinfo.savedsearch_id ? "selected" : "" %>><%= data.savedsearches[i]['savedsearch_name'] %></option>
+                                                                                                <% } %>
+                                                                                            </select>
+                                                                                            <div class="separator separator-dashed my-4"></div>
+                                                                                            <span class="badge badge-warning comingsooncenter">Coming soon</span>
+                                                                                            <!--begin:Option-->
+                                                                                            <label class="d-flex flex-stack cursor-pointer mb-5 opacity-25">
+                                                                                                <!--begin:Label-->
+                                                                                                <span class="d-flex align-items-center me-2">
+                                                                                                    <!--begin:Icon-->
+                                                                                                    <span class="symbol symbol-50px me-6">
+                                                                                                        <span class="symbol-label bg-light-warning">
+                                                                                                            <i class="fa-brands fa-hubspot fs-2x"></i>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <!--end:Icon-->
+                                                                                                    <!--begin:Info-->
+                                                                                                    <span class="d-flex flex-column">
+                                                                                                        <span class="fw-bold fs-6">Hubspot</span>
+                                                                                                        <span class="fs-7 text-muted">Read from your Hubspot Database</span>
+                                                                                                    </span>
+                                                                                                    <!--end:Info-->
+                                                                                                </span>
+                                                                                                <!--end:Label-->
+                                                                                                <!--begin:Input-->
+                                                                                                <span class="form-check form-check-custom form-check-solid">
+                                                                                                    <input class="form-check-input" type="radio" name="framework" value="1">
+                                                                                                </span>
+                                                                                                <!--end:Input-->
+                                                                                            </label>
+                                                                                            <!--end::Option-->
+                                                                                            <!--begin:Option-->
+                                                                                            <label class="d-flex flex-stack cursor-pointer mb-5 opacity-25">
+                                                                                                <!--begin:Label-->
+                                                                                                <span class="d-flex align-items-center me-2">
+                                                                                                    <!--begin:Icon-->
+                                                                                                    <span class="symbol symbol-50px me-6">
+                                                                                                        <span class="symbol-label bg-light-danger">
+                                                                                                            <i class="ki-outline ki-angular fs-2x text-danger"></i>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <!--end:Icon-->
+                                                                                                    <!--begin:Info-->
+                                                                                                    <span class="d-flex flex-column">
+                                                                                                        <span class="fw-bold fs-6">Airtable</span>
+                                                                                                        <span class="fs-7 text-muted">Read from your Airtable Database</span>
+                                                                                                    </span>
+                                                                                                    <!--end:Info-->
+                                                                                                </span>
+                                                                                                <!--end:Label-->
+                                                                                                <!--begin:Input-->
+                                                                                                <span class="form-check form-check-custom form-check-solid">
+                                                                                                    <input class="form-check-input" type="radio" name="framework" value="3">
+                                                                                                </span>
+                                                                                                <!--end:Input-->
+                                                                                            </label>
+                                                                                            <!--end::Option-->
+                                                                                            <!--begin:Option-->
+                                                                                            <label class="d-flex flex-stack cursor-pointer mb-5 opacity-25">
+                                                                                                <!--begin:Label-->
+                                                                                                <span class="d-flex align-items-center me-2">
+                                                                                                    <!--begin:Icon-->
+                                                                                                    <span class="symbol symbol-50px me-6">
+                                                                                                        <span class="symbol-label bg-light-danger">
+                                                                                                            <i class="fa-solid fa-a fs-2x"></i>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <!--end:Icon-->
+                                                                                                    <!--begin:Info-->
+                                                                                                    <span class="d-flex flex-column">
+                                                                                                        <span class="fw-bold fs-6">Affinity</span>
+                                                                                                        <span class="fs-7 text-muted">Read from your Affinity Database</span>
+                                                                                                    </span>
+                                                                                                    <!--end:Info-->
+                                                                                                </span>
+                                                                                                <!--end:Label-->
+                                                                                                <!--begin:Input-->
+                                                                                                <span class="form-check form-check-custom form-check-solid">
+                                                                                                    <input class="form-check-input" type="radio" name="framework" value="3">
+                                                                                                </span>
+                                                                                                <!--end:Input-->
+                                                                                            </label>
+                                                                                            <!--end::Option-->
+                                                                                            <!--begin:Option-->
+                                                                                            <label class="d-flex flex-stack cursor-pointer opacity-25">
+                                                                                                <!--begin:Label-->
+                                                                                                <span class="d-flex align-items-center me-2">
+                                                                                                    <!--begin:Icon-->
+                                                                                                    <span class="symbol symbol-50px me-6">
+                                                                                                        <span class="symbol-label bg-light-primary">
+                                                                                                            <i class="fa-solid fa-t fs-2x"></i>
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                    <!--end:Icon-->
+                                                                                                    <!--begin:Info-->
+                                                                                                    <span class="d-flex flex-column">
+                                                                                                        <span class="fw-bold fs-6">Typeform</span>
+                                                                                                        <span class="fs-7 text-muted">Read from your Typeform submission</span>
+                                                                                                    </span>
+                                                                                                    <!--end:Info-->
+                                                                                                </span>
+                                                                                                <!--end:Label-->
+                                                                                                <!--begin:Input-->
+                                                                                                <span class="form-check form-check-custom form-check-solid">
+                                                                                                    <input class="form-check-input" type="radio" name="framework" value="4">
+                                                                                                </span>
+                                                                                                <!--end:Input-->
+                                                                                            </label>
+                                                                                            <!--end::Option-->
+                                                                                        </div>
+                                                                                        <!--end::Input group-->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--end::Step 2-->
+                                                                                <!--begin::Step 3-->
+                                                                                <div data-kt-stepper-element="content">
+                                                                                    <div class="w-100">
+                                                                                        <!--begin::Input group-->
+                                                                                        <div class="fv-row mb-10 fv-plugins-icon-container">
+                                                                                            <!--begin::Label-->
+                                                                                            <label class="required fs-5 fw-semibold mb-2">
+                                                                                                Memo Template
+                                                                                            </label>
+                                                                                            <!--end::Label-->
+                                                                                            <!--begin::Input-->
+                                                                                            <select class="form-select form-select mb-3" name="prompttemplateoption" id="prompttemplateoption" data-control="select2" data-placeholder="Choose a Prompt Template" required>                                                                        <option></option>
+                                                                                                <% for(var i = 0; i < data.usertemplates.length; i++) { %>
+                                                                                                <option value="<%= data.usertemplates[i]['id'] %>" <%= data.usertemplates[i]['id'] === data.agentinfo.template_id ? "selected" : "" %>><%= data.usertemplates[i]['name'] %></option>
+                                                                                                <% } %>
+                                                                                                <% for(var i = 0; i < data.orgtemplates.length; i++) { %>
+                                                                                                <option value="<%= data.orgtemplates[i]['id'] %>" <%= data.orgtemplates[i]['id'] === data.agentinfo.template_id ? "selected" : "" %>><%= data.orgtemplates[i]['name'] %></option>
+                                                                                                <% } %>                                                                                                 
+                                                                                            </select>
+                                                                                            <!--end::Input-->
+
+                                                                                        </div>
+                                                                                        <!--end::Input group-->
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--end::Step 3-->
+                                                                                <!--begin::Step 4-->
+                                                                                <div data-kt-stepper-element="content">
+
+                                                                                    <div class="w-100">
+                                                                                        <span class="badge badge-warning comingsooncenter">Coming soon</span>
+                                                                                        <!--begin:Option-->
+                                                                                        <label class="d-flex flex-stack cursor-pointer mb-5 opacity-25">
+                                                                                            <!--begin:Label-->
+                                                                                            <span class="d-flex align-items-center me-2">
+                                                                                                <!--begin:Icon-->
+                                                                                                <span class="symbol symbol-50px me-6">
+                                                                                                    <span class="symbol-label bg-light-warning">
+                                                                                                        <i class="fa-brands fa-hubspot fs-2x"></i>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                                <!--end:Icon-->
+                                                                                                <!--begin:Info-->
+                                                                                                <span class="d-flex flex-column">
+                                                                                                    <span class="fw-bold fs-6">Hubspot</span>
+                                                                                                    <span class="fs-7 text-muted">Export to your Hubspot Database</span>
+                                                                                                </span>
+                                                                                                <!--end:Info-->
+                                                                                            </span>
+                                                                                            <!--end:Label-->
+                                                                                            <!--begin:Input-->
+                                                                                            <span class="form-check form-check-custom form-check-solid">
+                                                                                                <input class="form-check-input" type="radio" checked="" name="framework" value="1">
+                                                                                            </span>
+                                                                                            <!--end:Input-->
+                                                                                        </label>
+                                                                                        <!--end::Option-->
+                                                                                        <!--begin:Option-->
+                                                                                        <label class="d-flex flex-stack cursor-pointer mb-5 opacity-25">
+                                                                                            <!--begin:Label-->
+                                                                                            <span class="d-flex align-items-center me-2">
+                                                                                                <!--begin:Icon-->
+                                                                                                <span class="symbol symbol-50px me-6">
+                                                                                                    <span class="symbol-label bg-light-danger">
+                                                                                                        <i class="ki-outline ki-angular fs-2x text-danger"></i>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                                <!--end:Icon-->
+                                                                                                <!--begin:Info-->
+                                                                                                <span class="d-flex flex-column">
+                                                                                                    <span class="fw-bold fs-6">Airtable</span>
+                                                                                                    <span class="fs-7 text-muted">Export to your Airtable Database</span>
+                                                                                                </span>
+                                                                                                <!--end:Info-->
+                                                                                            </span>
+                                                                                            <!--end:Label-->
+                                                                                            <!--begin:Input-->
+                                                                                            <span class="form-check form-check-custom form-check-solid">
+                                                                                                <input class="form-check-input" type="radio" name="framework" value="3">
+                                                                                            </span>
+                                                                                            <!--end:Input-->
+                                                                                        </label>
+                                                                                        <!--end::Option-->
+                                                                                        <!--begin:Option-->
+                                                                                        <label class="d-flex flex-stack cursor-pointer mb-5 opacity-25">
+                                                                                            <!--begin:Label-->
+                                                                                            <span class="d-flex align-items-center me-2">
+                                                                                                <!--begin:Icon-->
+                                                                                                <span class="symbol symbol-50px me-6">
+                                                                                                    <span class="symbol-label bg-light-danger">
+                                                                                                        <i class="fa-solid fa-a fs-2x"></i>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                                <!--end:Icon-->
+                                                                                                <!--begin:Info-->
+                                                                                                <span class="d-flex flex-column">
+                                                                                                    <span class="fw-bold fs-6">Affinity</span>
+                                                                                                    <span class="fs-7 text-muted">Export to your Affinity Database</span>
+                                                                                                </span>
+                                                                                                <!--end:Info-->
+                                                                                            </span>
+                                                                                            <!--end:Label-->
+                                                                                            <!--begin:Input-->
+                                                                                            <span class="form-check form-check-custom form-check-solid">
+                                                                                                <input class="form-check-input" type="radio" name="framework" value="3">
+                                                                                            </span>
+                                                                                            <!--end:Input-->
+                                                                                        </label>
+                                                                                        <!--end::Option-->
+                                                                                        <!--begin:Option-->
+                                                                                        <label class="d-flex flex-stack cursor-pointer opacity-25">
+                                                                                            <!--begin:Label-->
+                                                                                            <span class="d-flex align-items-center me-2">
+                                                                                                <!--begin:Icon-->
+                                                                                                <span class="symbol symbol-50px me-6">
+                                                                                                    <span class="symbol-label bg-light-primary">
+                                                                                                        <i class="fa-brands fa-google-drive fs-2x"></i>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                                <!--end:Icon-->
+                                                                                                <!--begin:Info-->
+                                                                                                <span class="d-flex flex-column">
+                                                                                                    <span class="fw-bold fs-6">Google Drive</span>
+                                                                                                    <span class="fs-7 text-muted">Save to a doc file</span>
+                                                                                                </span>
+                                                                                                <!--end:Info-->
+                                                                                            </span>
+                                                                                            <!--end:Label-->
+                                                                                            <!--begin:Input-->
+                                                                                            <span class="form-check form-check-custom form-check-solid">
+                                                                                                <input class="form-check-input" type="radio" name="framework" value="4">
+                                                                                            </span>
+                                                                                            <!--end:Input-->
+                                                                                        </label>
+                                                                                        <!--end::Option-->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--end::Step 4-->
+                                                                                <!--begin::Step 5-->
+                                                                                <div data-kt-stepper-element="content">
+                                                                                    <div class="w-100 text-center">
+                                                                                        <!--begin::Heading-->
+                                                                                        <h1 class="fw-bold text-gray-900 mb-3"> <%= data.agentinfo.id ? "Update" : "Release!" %></h1>
+                                                                                        <!--end::Heading-->
+                                                                                        <!--begin::Description-->
+                                                                                        <div class="text-muted fw-semibold fs-3">
+                                                                                            <%= data.agentinfo.id ? "Update" : "Submit" %> your agent to kickstart your memo's.
+                                                                                        </div>
+                                                                                        <!--end::Description-->                                                                                        
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!--end::Step 5-->
+                                                                                <!--begin::Actions-->
+                                                                                <div class="d-flex flex-stack pt-10">
+                                                                                    <!--begin::Wrapper-->
+                                                                                    <div class="me-2">
+                                                                                        <button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
+                                                                                            <i class="ki-outline ki-arrow-left fs-3 me-1"></i>                                        Back
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <!--end::Wrapper-->
+                                                                                    <!--begin::Wrapper-->
+                                                                                    <div>
+                                                                                        <input type="hidden" name="agentinfoid" id="agentinfoid" value="<%= data.agentinfo.id %>" />
+                                                                                        <input type="hidden" name="enableagent" id="enableagent" value="<%= data.agentinfo.enabled %>" />
+                                                                                        <button type="submit" class="btn btn-lg btn-primary" id="saveagentinfo" data-kt-stepper-action="submit" onclick="saveAgent();">
+                                                                                            <span class="indicator-label">
+                                                                                                <%= data.agentinfo.id ? "Update" : "Submit" %>
+                                                                                                <i class="ki-outline ki-arrow-right fs-3 ms-2 me-0"></i>
+                                                                                            </span>
+                                                                                            <span class="indicator-progress">
+                                                                                                Saving... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                                            </span>
+                                                                                        </button>
+
+                                                                                        <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">
+                                                                                            Continue
+                                                                                            <i class="ki-outline ki-arrow-right fs-3 ms-1 me-0"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <!--end::Wrapper-->
+                                                                                </div>
+                                                                                <!--end::Actions-->
+                                                                            </form>
+                                                                            <!--end::Form-->
+                                                                        </div>
+                                                                        <!--end::Content-->
+                                                                    </div>
+                                                                    <!--end::Stepper-->
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Table container-->
+                                            </div>
+                                            <!--end::Card body-->
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                    <!--end::Tab pane-->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin::Footer-->
+                    <%- include('partials/footer.html'); %>
+                    <!--end::Footer-->
+                </div>
+                <!--end:::Main-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <i class="ki-outline ki-arrow-up"></i>
+    </div>
+    <!--end::Scrolltop-->
+    <script src="/js/agents.js"></script>
+    <link href="/stylesheets/agent.css" rel="stylesheet" />
+</body>
+<!--end::Body-->
+</html>

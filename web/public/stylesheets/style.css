@@ -1,0 +1,627 @@
+:root {
+    /* accent colors */
+ 
+    --primary-accent-color: #9B6AFF;
+    --secondary-accent-color: #E4DFF3;
+    --tertiary-accent-color: #432E7C;
+    --dark-purple-accent: #281c4a;
+    --dark-blue-accent-color: #205288;
+    --yellow-chart-color: #f0a342;
+
+    --bs-primary: var(--tertiary-accent-color);
+ 
+    --modal-width: 1177px!important;
+
+    --primary-format-color: #E8ECED;
+    --secondary-format-color: #010000;
+    --tertiary-format-color: #F8F9F8;
+    --primary-format-grey-color: #D8D8D8;
+    --secondary-format-grey-color: #F9FAFB;
+    --tertiary-format-grey-color: #EAECF0;
+    --grey-font-icons: #9CA3AF;
+    --logo-placeholder-grey-color: #D1D5DB;
+    --search-bar-grey: #e5e7eb;
+    
+
+    /* font colors */
+    --primary-text-color-black: #101828;
+    --secondary-text-color-black: #111928;
+    --primary-text-color-grey: #475467; 
+    --secondary-text-color-grey:  #6b7280;
+    --teriary-text-color-grey:  #9d9b99;
+    --blue-header-text-color: #02548c;
+
+    /* gradients */
+    --orange-gradient: linear-gradient(224.5deg, #FAA759 0%, #F16063 93.71%);
+
+ 
+    /* badge colors */
+
+    --badge-color-light-green: rgba(236, 253, 243, 1);
+    --badge-color-dark-green: rgba(2, 122, 72, 1);
+    --badge-color-light-blue: rgba(239, 248, 255, 1);
+    --badge-color-dark-blue: rgba(23, 92, 211, 1);
+    --badge-color-light-red: rgba(254, 243, 242, 1);
+    --badge-color-dark-red: rgba(180, 35, 24, 1);
+    --badge-color-light-grey: rgba(242, 244, 247, 1);
+    --badge-color-dark-grey: rgba(52, 64, 84, 1);
+    --badge-color-light-purple: rgba(249, 245, 255, 1);
+    --badge-color-dark-purple: rgba(105, 65, 198, 1);
+    --badge-color-orange: #FF8A4C;
+    --badge-color-blue: #3F83F8;
+    --badge-color-green: #31C48D;
+
+
+    /* font styles */
+    font-size: 16px!important;
+    font-family: Inter!important;
+    --font-size-header-title: 1.175rem;
+    --font-size-header-subtitle: 0.875rem;
+
+    --font-weight-400: 400;
+    --font-weight-500: 500;
+    --font-weight-600: 600;
+
+    /* sizing */
+    --size-12: 0.75rem;
+    --size-14: 0.875rem;
+    --size-16: 1rem;
+    --size-18: 1.125rem;
+    --size-20: 1.25rem;
+    --size-28: 1.75rem;
+    --size-30: 2rem;
+    --size-45: 2.813rem;
+
+    /* spacing */
+    --spacer-2-5: 2.5rem;
+
+
+}
+.placeholder-unsaved-tab-hidden {
+    display: none!important;
+}
+.modal-dialog span.select2 {
+    width:50%;
+}
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: var(--modal-width);
+        width: var(--modal-width);
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+.modal-dialog {
+    width: var(--modal-width);
+}
+/* search styles */
+
+input.search-companies-search-bar {
+    border: 1px solid var( --search-bar-grey)!important;
+    background-color: #fff!important;
+}
+
+#searchsumitbtn  {
+    background-color: var(--secondary-accent-color);
+    color: var(--tertiary-accent-color);
+}
+
+#searchsumitbtn:hover {
+    background-color: var(--secondary-accent-color)!important;
+    color: var(--tertiary-accent-color)!important;
+}
+
+#searchsavedfiltergroups {
+    background-color: var(--secondary-accent-color);
+    color: var(--tertiary-accent-color);
+}
+
+#searchsavedfiltergroups:hover {
+    background-color: var(--secondary-accent-color)!important;
+    color: var(--tertiary-accent-color)!important;
+}
+
+/* Search Path New Companies Table */
+svg.watchlist-eye-new-companies-table {
+    fill: yellow!important;
+    stroke: yellow!important;
+}
+
+.watchlist-eye-new-companies-table path {
+    fill: yellow!important;
+    stroke: yellow!important;
+}
+/* Company Details */
+
+.company-details-header {
+    font-size: var(--size-20);
+    font-weight: var(--font-weight-600);
+    line-height: var(--size-30);
+    color: var(--secondary-text-color-black);
+}
+
+.company-details-header:hover {
+    color: var(--primary-accent-color);
+}
+
+.company-details-span {
+    font-size: var(--size-14);
+    font-weight: var(--font-weight-400);
+    line-height: var(--size-20);
+}
+/* Badge Styling */
+.badge {
+    font-weight: var(--font-weight-500);
+    font-size: var(--size-12);
+    line-height: var(--size-16);
+}
+
+.company-badge-industry {
+    background: #fff;
+    color: var(--badge-color-blue);
+    border: 1px solid var(--badge-color-blue);
+}
+
+.company-saved-filter-group-badge {
+    background-color: var(--secondary-accent-color);
+    color: var(--badge-color-dark-purple);
+}
+
+.company-badge-new-label {
+    background: linear-gradient(225deg, #9B6AFF 0%, #432E7C 100%);
+    color: #FFF;
+}
+
+.company-badge-seriesA  {
+   background: var(--tertiary-accent-color);
+   color: #FFF;
+}
+
+.company-badge-seriesB  {
+    background: var(--badge-color-orange);
+    color: #FFF;
+ }
+
+ .company-badge-seriesC {
+    background: var(--badge-color-blue);
+    color: #FFF;
+ }
+
+ .company-badge-seriesSeed {
+    background: var(--badge-color-green);
+    color: #FFF;
+ }
+
+.--dark-purple-accent {
+    background-color: var(--dark-purple-accent);
+    color: #FFF;
+}
+
+.employee-exits-badge-yes {
+    background-color: var(--badge-color-light-green);
+    color: var(--badge-color-dark-green);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.employee-exits-badge-yes .badge-dot {
+    background: var(--badge-color-dark-green);
+}
+
+.employee-exits-badge-no {
+    background-color: var(--badge-color-light-red);
+    color: var(--badge-color-dark-red);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.employee-exits-badge-no .badge-dot {
+    background: var(--badge-color-dark-red);
+}
+
+.search-company-table-badge > div.company-saved-filter-group-badge{
+    max-width: 85px;
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}
+
+.employee-exits-company-name {
+    background-color: var(--badge-color-light-blue);
+    color: var(--badge-color-dark-blue);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.employee-badge-additional-count {
+    background-color: var(--badge-color-light-grey);
+    color: var(--badge-color-dark-grey);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.investors-badge {
+    background-color: #fff;
+    color: rgba(107, 114, 128, 1);
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    border: 1px solid  rgba(107, 114, 128, 1);
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.funding-table-view-link {
+    color: rgba(63, 131, 248, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    padding-bottom:3px;
+    text-decoration: underline;
+}
+
+a.nav-link.disabled {
+    color: rgba(209, 213, 219, 1)!important;
+}
+
+
+.table-font-style-1 {
+    color: var(--secondary-text-color-black);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-600);
+    line-height: 1.25rem;
+}
+
+.table-font-style-2 {
+    color: var(--primary-text-color-grey);
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-400);
+    line-height: 1.25rem;
+}
+
+.employee-table.table-headers li div:nth-child(5) {
+    padding-left: 30px;
+}
+
+/* Socials Styling */
+
+.social-card {
+    max-width:25%;
+    width:23%;
+    height:99px;
+    flex-grow: 1;
+    border-radius: 12px;
+    border: 1px solid var(--primary-format-color);
+    cursor: pointer;
+    flex-direction: column; 
+    padding: 20px;
+}
+
+.social-card span {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--secondary-text-color-grey);
+}
+
+.social-card .social-card-data {
+    font-size: var(--size-18);
+    font-weight: var(--font-weight-600);
+    line-height: var(--size-28);
+    color: var(--secondary-text-color-black);
+}
+/* Company Table Media Queries */
+
+@media (max-width: 1500px) {
+    .company-table .col-2 {
+        margin-left: 40px;
+    }
+}
+
+.empty-logo-placeholder {
+    background-color: var(--logo-placeholder-grey-color);
+    height: 40px;
+    width: 40px;
+}
+
+/* funding page */
+
+.funding-card {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: rgba(107, 114, 128, 1);
+}
+
+.funding-card span {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+    color: rgba(17, 25, 40, 1);
+}
+
+/* CardHeader Styles */
+h4.card-section-header-title {
+    font-size: var(--font-size-header-title);
+    font-weight: var(--font-weight-600);
+    line-height: 28px;
+    color: var(--primary-text-color-black);
+    margin-bottom: 0;
+}
+
+.card-section-wrapper-border h4.card-section-header-title {
+    padding-left: 26px;
+}
+
+.card-section-wrapper-border span.card-section-header-subtitle {
+    padding-left: 26px;
+}
+
+span.card-section-header-subtitle {
+    font-size: var(--font-size-header-subtitle);
+    font-weight: var(--font-weight-400);
+    line-height: 20px;
+    color: var(--grey-font-icons);
+}
+
+.card-section-header {
+    border-bottom: 1px solid var(--primary-format-color);
+    padding: 0;
+    margin: 0;
+}
+
+/* Card Styles */
+.card-section-wrapper-border {
+    border: 1px solid var(--primary-format-color);
+    margin-top: 20px;
+    /* box-shadow: 0 1px 2px 0 rgba(16, 24, 40, 0.06); */
+    /* box-shadow: 0px 1px 3px 0px rgba(16, 24, 40, 0.1); */
+    border-radius: 12px;
+}
+
+.detail-card-section {
+    padding: 25px;
+    max-width: 100%;
+    margin: 16px 0px 16px 0;
+}
+
+.comp-analysis-card {
+    font-size:0.9rem; 
+    font-weight:700; 
+    color: var(--primary-text-color-grey); 
+}
+
+.competitive-analysis-card {
+    font-weight: 400;
+    padding-left: 10px;
+    color: var(--secondary-format-color);
+    font-size: 0.75rem;
+}
+
+.competitive-analysis-card {
+    font-weight: 400;
+    padding-left: 10px;
+    color: var(--secondary-format-color);
+    font-size: 0.75rem;
+}
+
+
+/* Highlight Card Styles */
+
+.highlight-card-wrapper {
+    display: flex;
+    padding: 25px;
+    /* width: calc(50% - 10px); */
+    /* margin: 16px 0px 16px 0; */
+    /* flex: 1 1 auto; */
+    /* height: 159px;
+    max-width: 580px; */
+    width: 529px;
+    height: 180px;
+    top: 767px;
+    left: 315px;
+    gap: 24px;
+}
+.notable-indicators-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.notable-indicators-highlights section:first-child {
+    margin-right: 20px;
+}
+
+
+.highlight-card-wrapper h6 {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.highlight-info {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.highlight-details {
+    font-size: 0.9rem;
+}
+
+
+
+.company-list > .company-item:first-of-type {
+    border-top: none!important;
+  }
+
+
+.comp-card h4.card-section-header-title {
+    /* color: var(--primary-text-color-grey); */
+    /* color: var( --blue-header-text-color)!important; */
+    /* font-size: 15px!important; */
+}
+
+.comp-card .card-section-header {
+    /* border-bottom: 1.5px solid rgb(1 0 0); */
+   
+}
+
+/* .comp-card span {
+/* .comp-card span {
+   color: rgb(7, 20, 55);
+   font-weight: 800;
+} */
+
+
+.table-headers {
+    padding: 10px 0 10px 26px;
+    background: var(--secondary-format-grey-color);
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    border-bottom: 1px solid var(--tertiary-format-grey-color); 
+    border-top: 1px solid var(--tertiary-format-grey-color); 
+    color: var( --secondary-text-color-grey);
+}
+
+/* .table-card {
+    margin-top: 32px;
+} */
+
+.table-list-item {
+    padding: 14px 0 14px 26px; 
+    align-items: center;
+}
+
+.table-list-item:not(:last-child) {
+    border-bottom: 1px solid var(--tertiary-format-grey-color); 
+}
+
+
+
+.comp-card p {
+    line-height: 14px;
+}
+
+a {
+  color: var(--primary-accent-color);
+}
+
+.tablewidth {
+    width: 120px !important;
+}
+
+.select2-container--bootstrap5 .select2-dropdown .select2-results__option.select2-results__option--group .select2-results__option {
+    padding-left: 40px;
+}
+
+ul {
+    list-style: none!important;
+}
+
+a.disabled {
+    /* And disable the pointer events */
+    pointer-events: none;
+}
+
+.timeline-label:before {
+    left: 122px;
+}
+
+.timeline-label .timeline-label {
+    width: 120px;
+}
+
+.comingsooncenter {
+    margin-left: 45%;
+}
+
+.templateborderdashed {
+    border: 1px dashed !important;
+}
+
+.drive {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+
+/* Tabs Nav Styles */
+
+.app-sidebar-nav .nav-line-tabs .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center!important;
+}
+
+.app-sidebar-nav .nav-item a {
+     width: 48px;
+     height: 48px;
+}
+.app-sidebar-primary .app-sidebar-nav .nav .nav-link.btn.active {
+    background: var(--secondary-accent-color)!important;
+    background-color: var(--secondary-accent-color)!important;
+}
+
+@media (min-width: 992px) {
+    .app-sidebar-nav .nav-line-tabs .nav-item {
+        width: 48px;
+        height: 48px; 
+    }
+}
+
+.nav-line-tabs .nav-item:has(> a.active) { 
+    border-bottom: 2px solid var(--tertiary-accent-color);
+    background: var(--secondary-accent-color);
+ }
+
+.nav-line-tabs .nav-link {
+    padding: 0 !important;
+    border-bottom: none!important;
+    margin: 1rem 1.5rem !important;
+}
+
+
+.app-nav-bar-company-info .nav-item .nav-link.active {
+    color: var(--primary-tertiary-color)!important;
+}
+
+.search-companies .nav-item .nav-link.active {
+    color: var(--primary-tertiary-color)!important;
+}
+
+/* Sidebar Styles */
+@media (min-width: 992px) {
+    [data-kt-app-sidebar-fixed=true] .app-sidebar {
+        top: 0 !important;
+    }
+    .app-sidebar .app-sidebar-nav {
+        background: var(--bs-white);
+    }
+    .app-sidebar .app-sidebar-nav .nav-item .nav-link.active {
+        color: var(--tertiary-accent-color) !important;
+    }
+    
+}
+
+@media (min-width: 992px) {
+    [data-kt-app-header-fixed=true] .app-header {
+        left: var(--bs-app-sidebar-width);
+        height: 89px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .search-company-table-description {
+        width: 23vw;
+    }
+}
+
+
+.app-sidebar {
+    padding: 0!important;
+}

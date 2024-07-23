@@ -1,0 +1,31 @@
+<!--begin:: Competitive Analaysis TwoColumnCard -->
+<div class="g-col-4 w-100 comp-analysis-card">
+    <div style="border-bottom: 1.5px solid var(--secondary-format-color); padding-bottom: 5px;">
+        <%= cardTitle %>
+    </div>
+    <div class="d-flex justify-content-between" style=" font-size:0.75rem; font-weight:700; padding: 3px 10px 0 5px; color: var(--primary-text-color-black);">
+        <span><%= cardColumnTitle[0] %></span>
+        <span><%= cardColumnTitle[1] %></span>
+    </div>
+    <div style="padding: 5px 0 0 0; border-bottom: 1px solid var(--primary-format-color); margin-bottom: 30px;">
+        <% for (let i = 0; i < cardData.length; i ++) { %>
+            <div class="d-flex align-items-center justify-content-between" style="padding: 5px 10px 5px 5px; border-top: 1px solid var(--primary-format-color);">
+                <div class="d-flex">
+                    <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--primary-format-grey-color);"></div>
+                    <div class="d-flex flex-column flex-grow-3">
+                        <span class="d-flex competitive-analysis-card">
+                            <%= cardData[i].companyName %>
+                        </span>
+                        <span class="competitive-analysis-card" style="font-size: 0.58rem; line-height: 10px; color:var(--teriary-text-color-grey);">
+                            (<%= cardData[i].companyStat %>)
+                        </span>
+                    </div>
+                </div>
+                <span class="competitive-analysis-card">
+                    <%= cardData[i].companyRoundDetails %>
+                </span>
+            </div>
+        <% } %>
+    </div>
+</div>
+<!--end:: Competitive Analaysis TwoColumnCard -->

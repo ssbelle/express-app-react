@@ -1,0 +1,21 @@
+.accordion-button:not(.collapsed)::after,
+.accordion-button::after {
+    background-image: unset !important;
+}
+
+.addagent {
+    position: absolute;
+    top: 52px;
+    left: 285px;
+}
+
+.addagent:hover {
+    text-decoration: none;
+}
+
+.diabledagentBtn {
+    height: 44px;
+    margin-top: 15px;
+    width: 135px;
+    opacity: 90%;
+}

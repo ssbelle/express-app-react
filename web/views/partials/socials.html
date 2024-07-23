@@ -1,0 +1,43 @@
+<!--begin:: Social Cards -->
+<section style="width:100%;">
+    <%- include('cardHeader.html', {title: cardTitle, subtitle: '', underline: false, singleLine: false}); %>
+    <ul class="d-flex col-12" style="flex-wrap: wrap; gap: 16px; margin: 20px 0 0 0; padding: 0;">
+        <li class="social-card d-flex">
+            <a href="<%= `https://${data.website}` %>">
+                <div class="d-flex" style="margin-bottom:8px;">
+                    <img class="" style="margin-right:8px;" src="/vendors/media/icons/website-socials-logo.svg" alt="settings-icon" />
+                    <span>Website</span>
+                </div>
+                <div class="social-card-data"><%= data.website %></div>
+            </a>
+        </li>
+        <li class="social-card d-flex">
+            <a href="#">
+                <div class="d-flex" style="margin-bottom:8px;">
+                    <img class="" style="margin-right:8px;" src="/vendors/media/icons/phone-socials-logo.svg" alt="settings-icon" />
+                    <span>Phone</span>
+                </div>
+                <div class="social-card-data"><%= data.contacts[0].value %></div>
+            </a>
+        </li>
+        <% for (let i = 0; i < socialsData.length; i ++) { %>
+        <li class="social-card d-flex" >
+            <a href="<%= socialsData[i].url %>">
+                <div class="d-flex" style="margin-bottom:8px;">
+                    <img class="" style="margin-right:8px;" src="<%= `/vendors/media/icons/${socialsData[i].media_type}-socials-logo.png` %>" alt="settings-icon" />
+                    <span> <%= socialsData[i].media_type %></span>
+                </div>
+                <% if(socialsData[i].likes === 0 && socialsData[i].followers === 0){ %>
+                    <div class="social-card-data"><span style="color: var(--secondary-text-color-black);" href="<%= socialsData[i].url %>">View</span></div>
+                <% } else{ %>
+                    <div class="d-flex">
+                        <div class="d-flex" style="align-items: baseline;"><span style="font-size: 14px; font-weight: 400; line-height: 21px; padding-right: 5px;">Followers:</span><span style="color: var(--secondary-text-color-black);"><%= socialsData[i].followers > 0 ? socialsData[i].followers : '--' %></span></div>
+                        <div class="d-flex" style="    margin-left: 10px; align-items: baseline;"><span style="font-size: 14px; font-weight: 400; line-height: 21px; padding-right: 5px;">Likes:</span> <span style="color: var(--secondary-text-color-black);"><%= socialsData[i].likes > 0 ? socialsData[i].likes : '--' %></span></div>
+                    </div>
+                <% } %>
+            </a>
+        </li>
+        <% } %>
+    </ul>
+</section>
+<!--end:: Social Cards -->

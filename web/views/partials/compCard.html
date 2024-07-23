@@ -1,0 +1,92 @@
+
+
+<section style="display: flex; flex-wrap: wrap; width: 100%; padding: 20px 0;  margin-left: 39px;">
+    <div class="comp-card" style="width:calc(50% - 150px); margin-right: 100px; height: 300px;">
+        <%- include('cardHeader.html', {title: 'Top Companies', subtitle: '', underline: true}); %>
+        <section style="display: flex;
+        justify-content: space-between;">
+        <div style="padding: 25px 0 30px 0; margin-bottom: 30px;">
+           
+        </div>
+        <div style="padding: 25px 0 30px 0; margin-bottom: 30px;">
+            <!-- <%- include ('competitiveAnalysisCards/topInvestorsCard.html', {cardData: data.mock.fundingRoundsData}); %> -->
+        </div>
+        </section>
+    </div>
+
+    <div class="comp-card" style="width:calc(50% - 150px);height: 300px;">
+        <%- include('cardHeader.html', {title: 'Key Stats', subtitle: '', underline: true, singleLine: false}); %>
+       
+
+
+        <!-- <section style="display: flex; justify-content: space-around;">
+            <div style="display: flex; width: 140px;">
+                <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--primary-format-grey-color); margin-right: 30px;"></div>
+                <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: var(--font-size-header-title);
+                    font-weight: var(--font-weight-600);
+                    line-height: 28px; color: var(--bs-text-gray-900) !important; border-bottom: 1px solid var(--primary-format-grey-color);">15,874</span>
+                    <span style="    FONT-WEIGHT: 400;
+                    font-size: 0.75rem;
+                    color: var(--primary-format-grey-color);">Companies</span>
+                </div>
+            </div>
+            <div style="display: flex; width: 140px;">
+                <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--primary-format-grey-color); margin-right: 30px;"></div>
+                <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: var(--font-size-header-title);
+                    font-weight: var(--font-weight-600);
+                    line-height: 28px; color: var(--bs-text-gray-900) !important; border-bottom: 1px solid var(--primary-format-grey-color);">2791</span>
+                    <span style="    FONT-WEIGHT: 400;
+                    font-size: 0.75rem;
+                    flex-wrap: wrap;
+                    color: var(--primary-format-grey-color);">Funded Companies</span>
+                </div>
+            </div>
+            <div style="display: flex; width: 140px;">
+                <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--primary-format-grey-color); margin-right: 30px;"></div>
+                <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: var(--font-size-header-title);
+                    font-weight: var(--font-weight-600);
+                    line-height: 28px; color: var(--bs-text-gray-900) !important; border-bottom: 1px solid var(--primary-format-grey-color);">$47.9B</span>
+                    <span style="    FONT-WEIGHT: 400;
+                    font-size: 0.75rem;
+                    color: var(--primary-format-grey-color);">Funding</span>
+                </div>
+            </div>
+
+
+        </section> -->
+      
+    </div>
+    <div class="comp-card text-comp-card" style="width:calc(50% - 150px); margin-right: 100px; height: 300px; margin-top: 0px;">
+        <%- include('cardHeader.html', {title: 'Scope of Feed', subtitle: '', underline: true, singleLine: false}); %>
+        <div style="margin-top: 20px;">
+            <span class="fs-7">What is included</span>
+            <p class="fs-7">All the software solutions helping companies manage their finance and accounting functions will be covered in the feed. This will include all the legacy software companies be it on-premise liscenced or cloud-based software.</p>
+        </div>
+        <div>
+            <span class="fs-7">What is not included</span>
+            <p class="fs-7">Pure play survices firm that offers accounting related services. Companies focused only on financing will not be covered. Companies providing solutions for anyspecific sector will not be covered.</p>
+        
+        </div>
+    </div>
+    <div class="comp-card" style="width:calc(50% - 150px); height: 300px; margin-top: 0px;">
+        <%- include('cardHeader.html', {title: 'Top Geographies by Companies', subtitle: '', underline: true, singleLine: false}); %>
+    </div>
+</section>
+<section style="display: flex; flex-wrap: wrap; margin-left: 30px; height: 250px;">
+    <div class="comp-card" style="width: calc(33% - 75px); margin-right: 50px">
+        <%- include('cardHeader.html', {title: 'Companies by Stage', subtitle: '', underline: true, singleLine: false}); %>
+    </div>
+    <div class="comp-card" style="width: calc(33% - 75px); margin-right: 50px">
+        <%- include('cardHeader.html', {title: 'Y-o-Y Funding', subtitle: '', underline: true, singleLine: false}); %>
+    </div>
+    <div class="comp-card" style="width: calc(33% - 75px); margin-right: 0px">
+        <%- include('cardHeader.html', {title: 'Funding by Country', subtitle: '', underline: true, singleLine: false}); %>
+    </div>
+</section>
+<!-- <%-  include ('compAnalysisCard.html', {cardBorder: false}) %> -->
+<!-- <%-  include ('compAnalysisCard.html', {cardBorder: false}) %> -->
+
+

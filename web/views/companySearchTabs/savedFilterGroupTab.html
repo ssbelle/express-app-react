@@ -1,0 +1,56 @@
+<div class="card-body">
+                  
+      <div class="accordion" id="kt_accordion_1">
+      
+          <div class="accordion-item">
+       
+        
+              <div id="kt_accordion_1_body_3" class="accordion-collapse collapse show" aria-labelledby="kt_accordion_1_header_3" data-bs-parent="#kt_accordion_1">
+                  <div class="accordion-body">
+
+                         
+                <!--begin::Compact form-->
+                <div class="d-flex align-items-center">
+                    <!--begin::Input group-->
+                    <div class="position-relative w-md-400px me-md-2">
+                        <i class="ki-outline ki-magnifier fs-3 text-gray-500 position-absolute top-50 translate-middle ms-6"></i>
+                        <input type="text" class="form-control form-control-solid ps-10" name="searchsavedfiltergroups" value="" placeholder="Search Saved Filter Groups" />
+                    </div>
+                    <!--end::Input group-->
+                    <div class="d-flex align-items-center">
+                        <button type="submit" id="searchsavedfiltergroups" class="btn btn-primary me-5">
+                            <span class="indicator-label">Search</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- TODO: add search and filter functionality -->
+                <!-- TODO Fix search when you click on filter group to open -->
+                <script>
+                     var searchsavedfiltergroups = document.querySelector("#searchsavedfiltergroups");
+                     
+                </script>
+                <!--end::Compact form-->
+                      <div class="row row-cols-auto" style="margin-top:20px;">
+                          <% for(var i = 0; i < data.savedSearches.length; i++) { %>
+                          <!--begin::Section-->
+                          <div class="mr-5 mb-3 col">
+                              <!--begin:Author-->
+                              <button class="btn btn-bg-light w-100 text-start" type="button" onclick="_searchPg.setCurrentSavedSearch(<%= data.savedSearches[i]['id'] %>);">
+                                  <div class="flex-grow-1 me-2">
+                                      <span class="text-gray-800 text-hover-primary fs-7"><%= data.savedSearches[i]["savedsearch_name"] %></span>
+                                      <span class="text-muted fw-semibold d-block fs-8">Saved on: <%= new Date(data.savedSearches[i]["create_date"]).toLocaleString('en-us',{day: 'numeric', month:'short', year:'numeric'})  %></span>
+                                  </div>
+                              </button>
+                              <!--end:Author-->
+                          </div>
+                          <!--end::Section-->
+                          <% } %>
+                      </div>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+  </div>

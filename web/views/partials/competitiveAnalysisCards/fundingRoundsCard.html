@@ -1,0 +1,31 @@
+<!--begin:: Competitive Analaysis Funding Rounds Card -->
+<div class="col-6 card-section-wrapper-border" style="flex-shrink: 1;">
+    <div style="padding: 20px 0 15px 0px; border-bottom: 1.5px solid var(--primary-format-color); margin-bottom: 10px;">
+        <%- include('../../partials/cardHeader.html', {title: cardTitle, subtitle: '', underline: false, singleLine: false}); %>
+    </div>
+    <div class="d-flex justify-content-between" style=" font-size:0.75rem; font-weight:700; padding: 0px 26px 5px 26px; color: var(--primary-text-color-black);">
+        <span class="col-8"><%= cardColumnTitle[0] %></span>
+        <span class="col-4" style="padding-left: 10px;"><%= cardColumnTitle[1] %></span>
+    </div>
+    <div style="padding: 5px 0 0 0;">
+        <% for (let i = 0; i < cardData.length; i ++) { %>
+            <div class="d-flex align-items-center justify-content-between" style="padding: 10px 26px 10px 26px; border-top: 1px solid var(--primary-format-color);">
+                <div class="d-flex col-8">
+                    <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--logo-placeholder-grey-color);"></div>
+                    <div class="d-flex flex-column flex-grow-3">
+                        <span class="d-flex competitive-analysis-card">
+                            <%= cardData[i].companyName %>
+                        </span>
+                        <span class="competitive-analysis-card" style="font-size: 0.58rem; line-height: 10px; color:var(--teriary-text-color-grey);">
+                            (<%= cardData[i].companyStat %>)
+                        </span>
+                    </div>
+                </div>
+                <span class="competitive-analysis-card col-4">
+                    <%= cardData[i].companyRoundDetails %>
+                </span>
+            </div>
+        <% } %>
+    </div>
+</div>
+<!--end:: Competitive Analaysis Funding Rounds Card -->

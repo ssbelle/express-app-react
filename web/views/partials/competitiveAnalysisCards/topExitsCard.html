@@ -1,0 +1,59 @@
+<!--begin:: Competitive Analaysis Top Exits Card-->
+<section class="<%= columnSetting %> card-section-wrapper-border" style="flex-shrink: 1;">
+
+    <div style="padding: 20px 0 15px 0px; border-bottom: 1.5px solid var(--primary-format-color); margin-bottom: 10px;">
+        <%- include('../../partials/cardHeader.html', {title: cardTitle, subtitle: '', underline: false, singleLine: false}); %>
+    </div>
+<div class="d-flex justify-content-between" style=" font-size:0.75rem; 
+font-weight:700; 
+padding: 0 26px 5px 26px;
+color: var(--primary-text-color-black); ">
+    <span class="col-1" style="flex-grow:1;"><%= cardColumnTitle[0] %></span>
+    <span class="col-5" style="flex-grow:2;"><%= cardColumnTitle[1] %></span>
+    <span class="col-3" style="flex-grow: 0; display: flex; justify-content: flex-end;"><%= cardColumnTitle[2] %></span>
+</div>
+<div style="padding: 5px 0 0 0;">
+    <% for (let i = 0; i < data.mock.topExitsData.length; i ++) { %>
+        <div style="display: flex; align-items: center;
+        border-top: 1px solid var(--primary-format-color); FONT-WEIGHT: 400;
+         font-size: 0.69rem;
+         color: var( --secondary-format-color); background: var(--secondary-format-grey-color);">
+         <div style="padding: 26px; width: 78px;
+         display: flex;">
+            <span style="
+            flex-wrap: wrap; margin: 0;"><%= data.mock.topExitsData[i].type %>
+            </span>
+        </div>
+         <div class="d-flex company-list" style="flex-direction: column; background-color: white;
+         flex-grow: 2;
+         ">
+            <% for (let j = 0; j < data.mock.topExitsData[i].companyData.length; j ++) { %>
+    
+
+            <div class="company-item" style="display: flex;   border-top: 1px solid var(--primary-format-color);   align-items: center;   padding: 10px 30px 10px 35px;
+     ">
+    <div class="company-logo-placeholder" style="height: 30px; width: 30px; background-color: var(--logo-placeholder-grey-color);"></div>
+    <div style="display: flex; flex-direction: column; flex-grow: 3;">
+        <span style="FONT-WEIGHT: 400;
+        font-size: 0.75rem;
+        color: var( --secondary-format-color);
+        padding-left: 10px;"><%= data.mock.topExitsData[i].companyData[j].companyName %></span>
+        <span style="FONT-WEIGHT: 500;
+        font-size: 0.58rem;
+        line-height: 10px;
+        color:var(--teriary-text-color-grey);
+        padding-left: 10px;">(<%= data.mock.topExitsData[i].companyData[j].companyStat %>)</span>
+    </div>
+    <span style="FONT-WEIGHT: 400;
+    font-size: 0.75rem;
+    color: var( --secondary-format-color);
+    padding-left: 10px;"><%= data.mock.topExitsData[i].companyData[j].companyPrice %></span>
+    </div>
+    
+            <% } %>
+         </div>
+        </div>
+    <% } %>
+</div>
+</section>
+<!--end:: Competitive Analaysis Top Exits Card-->

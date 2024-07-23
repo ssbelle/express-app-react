@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.html'); %>
+</head>
+
+<body id="kt_body" class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center">
+    <div class="d-flex flex-column flex-root" id="kt_app_root">
+        <div class="d-flex flex-column flex-lg-row flex-column-fluid">
+            <div class="d-flex flex-lg-row-fluid">
+                <div class="d-flex flex-column flex-center pb-0 pb-lg-10 p-10 w-100">
+                    <%- include ("../public/vendors/media/logos/V-AI-Logo.svg") %>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column-fluid flex-lg-row-auto justify-content-center justify-content-lg-end p-12">
+                <div class="bg-body d-flex flex-column flex-center rounded-4 w-md-600px p-10">
+                    <div class="d-flex flex-center flex-column align-items-stretch h-lg-100 w-md-400px">
+                        <div class="d-flex flex-center flex-column flex-column-fluid pb-15 pb-lg-20">
+                            <form class="form w-100 mb-13" method="post" action="/auth/verify" id="kt_sing_in_two_factor_form">
+                                <div class="text-center mb-10">
+                                    <img alt="Logo" class="mh-125px" src="vendors/media/auth/smartphone-2.svg" />
+                                </div>
+                                <div class="text-center mb-10">
+                                    <h1 class="text-dark mb-3">Two-Factor Verification</h1>
+                                    <div class="text-muted fw-semibold fs-5 mb-5">Enter the verification code we sent to</div>
+                                    <div class="fw-bold text-dark fs-3"><%= email %></div>
+                                </div>
+
+                                <div class="mb-10">
+                                    <div class="fw-bold text-start text-dark fs-6 mb-1 ms-1">Type your 6 digit security code</div>
+                                    <div class="d-flex flex-wrap flex-stack">
+                                        <input type="text" required name="code_1" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" class="form-control bg-transparent h-60px w-60px fs-2qx text-center mx-1 my-2" value="" />
+                                        <input type="text" required name="code_2" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" class="form-control bg-transparent h-60px w-60px fs-2qx text-center mx-1 my-2" value="" />
+                                        <input type="text" required name="code_3" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" class="form-control bg-transparent h-60px w-60px fs-2qx text-center mx-1 my-2" value="" />
+                                        <input type="text" required name="code_4" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" class="form-control bg-transparent h-60px w-60px fs-2qx text-center mx-1 my-2" value="" />
+                                        <input type="text" required name="code_5" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" class="form-control bg-transparent h-60px w-60px fs-2qx text-center mx-1 my-2" value="" />
+                                        <input type="text" required name="code_6" data-inputmask="'mask': '9', 'placeholder': ''" maxlength="1" class="form-control bg-transparent h-60px w-60px fs-2qx text-center mx-1 my-2" value="" />
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-center">
+                                    <button type="submit" id="kt_sing_in_two_factor_submit" class="btn btn-lg btn-primary fw-bold">
+                                        <span class="indicator-label">Submit</span>    
+                                        <span class="indicator-progress">
+                                            Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="text-center fw-semibold fs-5">
+                                <span class="text-muted me-1">Didn’t get the code ?</span>
+                                <a href="#" class="link-primary fs-5 me-1">Resend</a>                                
+                            </div>
+                        </div>
+                        <div class="w-lg-500px d-flex flex-stack">
+                            <div class="d-flex fw-semibold text-primary fs-base gap-5">
+                                <a href="//forumvc.ai" target="_blank">Terms</a>
+                                <a href="//forumvc.ai" target="_blank">Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendors/plugins/global/plugins.bundle.js"></script>
+    <script src="vendors/js/scripts.bundle.js"></script>
+    <script type="text/javascript">
+        var button = document.querySelector("#kt_sing_in_two_factor_submit");
+        button.addEventListener("click", function () {
+            // Activate indicator
+            button.setAttribute("data-kt-indicator", "on");
+            return true;
+        });
+
+        document.addEventListener("paste", function (e) {
+            // if the target is a text input
+            if (e.target.type === "text") {
+                var data = e.clipboardData.getData('Text');
+                // split clipboard text into single characters
+                data = data.split('');
+                // find all other text inputs
+                [].forEach.call(document.querySelectorAll("input[type=text]"), (node, index) => {
+                    // And set input value to the relative character
+                    node.value = data[index];
+                });
+            }
+        });
+
+        document.querySelectorAll('input').forEach(el => {
+            el.addEventListener('keydown', e => {
+                let nextEl = el.nextElementSibling;
+                if (nextEl.nodeName === 'INPUT') {
+                    nextEl.focus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!--begin::Head-->
+<head>
+    <%- include('partials/head.html'); %>
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-sidebar-stacked="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    <!--begin::App-->
+    <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+        <!--begin::Page-->
+        <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+            <%- include('partials/header.html'); %>
+            <!--begin::Wrapper-->
+            <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+                <!--begin::Sidebar-->
+                <div id="kt_app_sidebar" class="app-sidebar" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+                    <!--begin::Sidebar primary-->
+                    <%- include('partials/sidebar.html'); %>
+                    <!--end::Sidebar primary-->
+                </div>
+                <!--end::Sidebar-->
+                <!--begin::Main-->
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    <!--begin::Toolbar-->
+
+                    <div class="d-flex flex-wrap flex-stack pb-0">
+                        <!--begin::Title-->
+                        <div class="d-flex flex-wrap align-items-center my-1">
+                        </div>
+                        <!--end::Title-->
+                        <!--begin::Controls-->
+                        <div class="d-flex flex-wrap mt-5 me-10">
+                            <!--begin::Actions-->
+                            <div class="d-flex my-0">
+                                <!--begin::Select-->
+                                <select name="status" data-control="select2" data-hide-search="true" data-placeholder="Sort" class="form-select form-select-sm border-body bg-body w-200px">
+                                    <option value="">[COMING SOON]</option>
+                                    <option value="-1">[COMING SOON]</option>
+                                    <option value="0">Alerts from today</option>
+                                    <option value="1">Alerts from yesterday</option>
+                                    <option value="7">Alerts from past 7 days</option>
+                                    <option value="30">Alerts from past 30 days</option>
+                                </select>
+                                <!--end::Select-->
+                            </div>
+                            <!--end::Actions-->
+                        </div>
+                        <!--end::Controls-->
+                    </div>
+
+                   
+                    <!--end::Toolbar-->
+                    <!--begin::Content wrapper-->
+                    <div class="d-flex flex-column flex-column-fluid">
+                        <!--begin::Content-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid pt-1">
+                            <!--begin::Content container-->
+                            <div id="kt_app_content_container" class="app-container container-fluid pt-4">
+
+                                <div class="tab-content">
+                                    <!--begin::Tab pane-->
+                                    <div id="kt_project_users_table_pane" class="tab-pane fade show active">
+                                        <!--begin::Card-->
+                                        <div class="card card-flush">
+                                            <!--begin::Card body-->
+                                            <div class="card-body pt-0">
+                                                <!--begin::Table container-->
+                                                <div class="table-responsive">
+                                                    <!--begin::Table-->
+                                                    <table id="kt_project_watchlist_table" class="table table-row-bordered table-row-dashed gy-4 align-middle fw-bold">
+                                                        <thead class="fs-7 text-gray-400 text-uppercase">
+                                                            <tr>
+                                                                <th class="w-50">Company Name</th>
+                                                                <th class="">Watch Date</th>
+                                                                <th class="min-w-150px">Notes</th>
+                                                                <th class="min-w-150px">Alerts</th>
+                                                                <th class="text-end pe-15">Details</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody class="fs-7">
+                                                            <% for(var i = 0; i < data.length; i++) { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <!--begin::User-->
+                                                                    <div class="d-flex align-items-center">
+                                                                        <!--begin::Wrapper-->
+                                                                        <div class="me-5 position-relative">
+                                                                            <!--begin::Avatar-->
+                                                                            <div class="symbol symbol-35px symbol-circle">
+                                                                                <img src="<%= data[i]['company_info']['logo'] %>" />
+                                                                            </div>
+                                                                            <!--end::Avatar-->
+                                                                        </div>
+                                                                        <!--end::Wrapper-->
+                                                                        <!--begin::Info-->
+                                                                        <div class="d-flex flex-column justify-content-center">
+                                                                            <a href="/company/info/<%= data[i]['company_info']['id'] %>" class="mb-1 text-gray-800 text-hover-primary"><%= data[i]["company_info"]["name"] %></a>
+                                                                            <div class="fw-semibold fs-7 text-gray-400"><%= (data[i]["company_info"]["description"]).replace(/(.{370})..+/, "$1...") %></div>
+                                                                        </div>
+                                                                        <!--end::Info-->
+                                                                    </div>
+                                                                    <!--end::User-->
+                                                                </td>
+                                                                <td><%= new Date(data[i]["create_date"]).toLocaleString('en-us',{day: 'numeric', month:'short', year:'numeric'})  %></td>
+                                                                <td class="text-gray-700 fw-semibold me-2">
+                                                                    <%= data[i]["notes"] %>
+                                                                </td>
+                                                                <td class="text-gray-700 fw-semibold me-2">
+                                                                    
+                                                                </td>
+                                                                <td class="text-end">
+                                                                    <button class="btn btn-light btn-sm" id="watchlist_<%= data[i]['id'] %>" onclick="_watchlistPg.setDrawerWatchlistId(<%= data[i]['id'] %>, <%= data[i]['company_info']['id'] %>);" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_example_dismiss">View & Set Alerts</button>
+                                                                </td>
+                                                            </tr>
+                                                            <% } %>
+
+                                                        </tbody>
+                                                    </table>
+                                                    <!--end::Table-->
+                                                </div>
+                                                <!--end::Table container-->
+                                            </div>
+                                            <!--end::Card body-->
+                                        </div>
+                                        <!--end::Card-->
+                                    </div>
+                                    <!--end::Tab pane-->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin::Footer-->
+                    <%- include('partials/footer.html'); %>
+                    <!--end::Footer-->
+                </div>
+                <!--end:::Main-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <i class="ki-outline ki-arrow-up"></i>
+    </div>
+    <!--end::Scrolltop-->
+
+    <div id="kt_drawer_example_dismiss"
+         class="bg-white"
+         data-kt-drawer="true"
+         data-kt-drawer-activate="true"
+         data-kt-drawer-toggle="#kt_drawer_example_dismiss_button"
+         data-kt-drawer-close="#kt_drawer_example_dismiss_close"
+         data-kt-drawer-overlay="true"
+         data-kt-drawer-width="500px"
+         style="max-width: 500px;">
+
+
+    </div>
+    <script src="js/watchlist.js"></script>
+</body>
+<!--end::Body-->
+</html>

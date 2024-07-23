@@ -1,0 +1,176 @@
+.jh-root, .jh-type-object, .jh-type-array, .jh-key, .jh-value, .jh-root tr {
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* Opera/IE 8+ */
+    -ms-word-break: break-all;
+    /* Be VERY careful with this, breaks normal words wh_erever */
+    word-break: break-all;
+    /* Non standard for webkit */
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+.jh-key, .jh-value {
+    margin: 0;
+    padding: 0.2em;
+    /*max-width: 300px;*/
+}
+
+.jh-value {
+    border-left: 1px solid #ddd;
+}
+
+.jh-type-bool, .jh-type-number {
+    font-weight: bold;
+    text-align: center;
+    color: #5286BC;
+}
+
+.jh-type-string {
+    font-style: italic;
+    color: #839B00;
+    max-width: 250px;
+}
+
+.jh-array-key {
+    font-style: italic;
+    font-size: small;
+    text-align: center;
+}
+
+.jh-object-key, .jh-array-key {
+    color: #444;
+    vertical-align: top;
+    min-width: 125px;
+}
+
+.jh-type-object > tr:nth-child(odd), .jh-type-array > tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.jh-type-object > tr:nth-child(even), .jh-type-array > tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.jh-type-object, .jh-type-array {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.jh-root {
+    border: 1px solid #ccc;
+    margin: 0.2em;
+}
+
+th.jh-key {
+    text-align: left;
+    font-weight: normal;
+}
+
+.jh-type-object > tr, .jh-type-array > tr {
+    border: 1px solid #ddd;
+    border-bottom: none;
+}
+
+    .jh-type-object > tr:last-child, .jh-type-array > tr:last-child {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .jh-type-object > tr:hover, .jh-type-array > tr:hover {
+        border: 1px solid #F99927;
+    }
+
+.jh-empty {
+    font-style: italic;
+    color: #999;
+    font-size: small;
+}
+
+.expandRow, .collapseRow {
+    width: 26px;
+    height: 26px;
+    float: left;
+}
+
+.expandRow {
+    background: url('/images/gl_site.png') no-repeat -106px -64px;
+}
+
+    .expandRow:hover {
+        background: url('/images/gl_site.png') no-repeat -1px -137px;
+        cursor: pointer;
+    }
+
+.collapseRow {
+    background: url('/images/gl_site.png') no-repeat -69px -105px;
+}
+
+    .collapseRow:hover {
+        background: url('/images/gl_site.png') no-repeat -105px -92px;
+        cursor: pointer;
+    }
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td {
+    vertical-align: inherit;
+}
+
+.hidden {
+    display: none;
+}
+
+.replayBtn {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #1f1d1f;
+    font-size: 12px;
+    background: #d7dce0;
+    padding: 5px 8px 5px 8px;
+    text-decoration: none;
+}
+
+    .replayBtn:hover {
+        background: #737b80;
+        text-decoration: none;
+    }
+
+ul.replayMenu {
+    padding: 0;
+    list-style: none;
+}
+
+    ul.replayMenu li {
+        float: left;
+        width: 70px;
+        text-align: center;
+        line-height: 21px;
+        position: relative;
+    }
+
+        ul.replayMenu li a {
+            display: block;
+            padding: 5px 10px;
+            color: #333;
+            background: #f2f2f2;
+            text-decoration: none;
+        }
+
+            ul.replayMenu li a:hover {
+                color: #fff;
+                background: #939393;
+            }
+
+        ul.replayMenu li ul {
+            display: none;
+            padding: 0;
+            list-style: none;
+            position: absolute;
+            z-index: 10;
+        }
+
+        ul.replayMenu li:hover ul {
+            display: block; /* display the dropdown */
+        }

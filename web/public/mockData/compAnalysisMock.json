@@ -1,0 +1,308 @@
+{
+  "topCompaniesData": [
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    },
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    },
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    },
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    },
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    },
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    },
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    },
+    {
+      "companyName": "Carta",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M"
+    }
+  ],
+  "fundingRoundsData": [
+    {
+      "companyName": "beqom",
+      "companyIcon": "",
+      "companyStat": "2009, Switzerland, $335M",
+      "companyRoundDetails": "$300M-Series D"
+    },
+    {
+      "companyName": "Ramp",
+      "companyIcon": "",
+      "companyStat": "2019, $970M",
+      "companyRoundDetails": "$300M-Series D"
+    },
+    {
+      "companyName": "PayFit",
+      "companyIcon": "",
+      "companyStat": "2016, United Kingdom, $496M",
+      "companyRoundDetails": "$289-Series E"
+    },
+    {
+      "companyName": "Chargebee",
+      "companyIcon": "",
+      "companyStat": "2011, India, $480M",
+      "companyRoundDetails": "$250M-Series H"
+    },
+    {
+      "companyName": "Taxfix",
+      "companyIcon": "",
+      "companyStat": "2016, Germany, $330M",
+      "companyRoundDetails": "$220M-Series D"
+    }
+  ],
+  "topInvestorsData": [
+    {
+      "stage": "Seed Stage",
+      "investorData": [
+        {
+          "name": "Y Combinator",
+          "portfolio": "82"
+        },
+        {
+          "name": "Soma Capital",
+          "portfolio": "19"
+        },
+        {
+          "name": "500 Global",
+          "portfolio": "13"
+        }
+      ]
+    },
+    {
+      "stage": "Early Stage",
+      "investorData": [
+        {
+          "name": "Y Combinator",
+          "portfolio": "26"
+        },
+        {
+          "name": "Tiger Global Management",
+          "portfolio": "19"
+        },
+        {
+          "name": "Global Founders Capital",
+          "portfolio": "11"
+        }
+      ]
+    },
+    {
+      "stage": "Late Stage",
+      "investorData": [
+        {
+          "name": "Tiger Global Management",
+          "portfolio": "15"
+        },
+        {
+          "name": "Insight Partners",
+          "portfolio": "10"
+        },
+        {
+          "name": "SVB",
+          "portfolio": "9"
+        }
+      ]
+    }
+  ],
+  "topExitsData": [
+    {
+      "type": "Acq.",
+      "companyData": [
+        {
+          "companyName": "Ultimate Software",
+          "companyIcon": "",
+          "companyStat": "1990, United States",
+          "companyPrice": "$11.0B"
+        },
+        {
+          "companyName": "Anaplan",
+          "companyIcon": "",
+          "companyStat": "2006, United States",
+          "companyPrice": "$10.7B"
+        },
+        {
+          "companyName": "Adenza",
+          "companyIcon": "",
+          "companyStat": "2006, United Kingdom",
+          "companyPrice": "$10.5B"
+        }
+      ]
+    },
+    {
+      "type": "IPO",
+      "companyData": [
+        {
+          "companyName": "Xero",
+          "companyIcon": "",
+          "companyStat": "2006, New Zealand",
+          "companyPrice": "$18.2B"
+        },
+        {
+          "companyName": "Marqeta",
+          "companyIcon": "",
+          "companyStat": "2010, United States, $528M",
+          "companyPrice": "$14.3B"
+        }
+      ]
+    }
+  ],
+  "topCompetitorsData": [
+    {
+      "company": "Company Name",
+      "logo": "",
+      "traction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "recentFunding": "$750,000",
+      "lastSeriesRaised": "Series A"
+    },
+    {
+      "company": "Company Name",
+      "logo": "",
+      "traction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "recentFunding": "$750,000",
+      "lastSeriesRaised": "Series A"
+    },
+    {
+      "company": "Company Name",
+      "logo": "",
+      "traction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "recentFunding": "$750,000",
+      "lastSeriesRaised": "Series A"
+    },
+    {
+      "company": "Company Name",
+      "logo": "",
+      "traction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "recentFunding": "$750,000",
+      "lastSeriesRaised": "Series A"
+    },
+    {
+      "company": "Company Name",
+      "logo": "",
+      "traction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "recentFunding": "$750,000",
+      "lastSeriesRaised": "Series A"
+    },
+    {
+      "company": "Company Name",
+      "logo": "",
+      "traction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "recentFunding": "$750,000",
+      "lastSeriesRaised": "Series A"
+    },
+    {
+      "company": "Company Name",
+      "logo": "",
+      "traction": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.",
+      "recentFunding": "$750,000",
+      "lastSeriesRaised": "Series A"
+    }
+  ],
+  "keyStatsData": [
+    {
+      "label": "Companies",
+      "stat": "15,874",
+      "icon": "/vendors/media/icons/companies-key-stat.png"
+    },
+    {
+      "label": "Funded Companies",
+      "stat": "2,791",
+      "icon": "/vendors/media/icons/funded-companies-key-stat.png"
+    },
+    {
+      "label": "Total Funding",
+      "stat": "$27.9B",
+      "icon": "/vendors/media/icons/total-funding-key-stat.png"
+    },
+    {
+      "label": "Funding in last 2 years",
+      "stat": "$9.9B",
+      "icon": "/vendors/media/icons/funding-2-years-key-stat.png"
+    },
+    {
+      "label": "Aquisitions",
+      "stat": "681",
+      "icon": "/vendors/media/icons/aquisitions-key-stat.png"
+    },
+    {
+      "label": "IPOs",
+      "stat": "62",
+      "icon": "/vendors/media/icons/ipo-key-stat.png"
+    }
+  ],
+  "YoYFundingChart": [
+    {
+      "labels": ["2018", "2019", "2020", "2021", "2022", "2023 YTD"]
+    },
+    {
+      "set1": [
+        "3000000000",
+        "4600000000",
+        "4100000000",
+        "13500000000",
+        "7100000000",
+        "2600000000"
+      ]
+    },
+    {
+      "set2": [
+        "2920000000",
+        "3170000000",
+        "3250000000",
+        "524000000",
+        "4410000000",
+        "2410000000"
+      ]
+    },
+    {
+      "totalFunding": "$47.9B"
+    }
+  ],
+  "companiesByStageChart": [
+    {
+      "label": "Founded",
+      "dataPoint": "15874"
+    },
+    {
+      "label": "Funded",
+      "dataPoint": "2791"
+    },
+    {
+      "label": "Series A+",
+      "dataPoint": "868"
+    },
+    {
+      "label": "Series B+",
+      "dataPoint": "455"
+    },
+    {
+      "label": "Series C+",
+      "dataPoint": "259"
+    },
+    {
+      "label": "Series D+",
+      "dataPoint": "161"
+    }
+  ]
+}

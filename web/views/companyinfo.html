@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!--begin::Head-->
+<head>
+    <%- include('partials/head.html'); %>
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-sidebar-stacked="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    <!--begin::App-->
+    <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+        <!--begin::Page-->
+        <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+            <!--begin::Sidebar-->
+            <div id="kt_app_sidebar" class="app-sidebar" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+                <!--begin::Sidebar primary-->
+                <%- include('partials/sidebar.html'); %>
+                <!--end::Sidebar primary-->
+            </div>
+             <!--end::Sidebar-->
+            <%- include('partials/header.html'); %>
+            <!--begin::Wrapper-->
+            <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+                <!--begin::Main-->
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    <!--begin::Content wrapper-->
+                    <div class="d-flex flex-column flex-column-fluid">
+                        <!--begin::Content-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid pt-1">
+                            <!--begin::Content container-->
+                            <div id="kt_app_content_container" class="app-container container-fluid pt-4">
+                                <div class="card mb-5 mb-xl-5 app-nav-bar-company-info">
+                                    <div class="card-body pt-9 pb-0">
+                                        <!--begin::CompanyDetails-->
+                                        <%- include ('companyDetails.html'); %>
+                                        <!--end::CompanyDetails-->
+                                        <!--begin::Navs-->
+                                        <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x fs-7 fw-bold">
+                                               <!--begin::Nav item-->
+                                               <li class="nav-item mt-2">
+                                                <a class="nav-link text-active-primary ms-0 me-10 py-5 active" data-bs-toggle="tab" href="#kt_tab_pane_1">
+                                                    Competitive Analysis
+                                                </a>
+                                            </li>
+                                            <!--end::Nav item-->
+                                            <!--begin::Nav item-->
+                                            <li class="nav-item mt-2">
+                                                <a class="nav-link text-active-primary ms-0 me-10 py-5 " data-bs-toggle="tab" href="#kt_tab_pane_2">
+                                                    Leadership & Socials
+                                                </a>
+                                            </li>
+                                            <!--end::Nav item-->
+                                            <!--begin::Nav item-->
+                                            <li class="nav-item mt-2">
+                                                <a class="nav-link text-active-primary ms-0 me-10 py-5" data-bs-toggle="tab" href="#kt_tab_pane_3">
+                                                    Funding
+                                                </a>
+                                            </li>
+                                            <!--end::Nav item-->
+                                            <!--begin::Nav item-->
+                                            <li class="nav-item mt-2">
+                                                <a class="nav-link text-active-primary ms-0 me-10 py-5 " data-bs-toggle="tab" href="#kt_tab_pane_4">
+                                                    Notes
+                                                </a>
+                                            </li>
+                                            <!--end::Nav item-->
+                                            <!--begin::Nav item-->
+                                            <li class="nav-item mt-2">
+                                                <a class="nav-link text-active-primary ms-0 me-10 py-5 disabled" data-bs-toggle="tab" href="#kt_tab_pane_6">
+                                                    Scorecard
+                                                </a>
+                                            </li>
+                                            <!--end::Nav item-->
+                                            <!--begin::Nav item-->
+                                            <li class="nav-item mt-2">
+                                                <a class="nav-link text-active-primary ms-0 me-10 py-5 disabled" data-bs-toggle="tab" href="#kt_tab_pane_6">
+                                                    Newsfeed
+                                                </a>
+                                            </li>
+                                            <!--end::Nav item-->
+                                        </ul>
+                                        <!--end::Navs-->
+                                         <div class="d-flex flex-wrap flex-sm-nowrap">
+                                            <!--begin:: Tabs Content-->
+                                            <div class="tab-content w-100" id="myTabContent">
+                        
+                                                <!--begin:: Competitive Analysis Tab-->
+                                                <div class="tab-pane active" aria-current="page" id="kt_tab_pane_1" role="tabpanel">
+                                                    <%- include ('companyInfoTabs/competitiveAnalysisTab.html'); %>
+                                                </div>
+                                                <!--end:: Competitive Analysis Tab-->
+                                               
+                                                <!--begin:: Leadership & Socials Tab-->
+                                                <div class="tab-pane fade" id="kt_tab_pane_2" role="tabpanel">
+                                                  <%- include ('companyInfoTabs/leadership&SocialsTab.html'); %>
+                                                </div>
+                                                <!--end:: Leadership & Socials Tab-->
+
+                                                <!--begin:: Funding Tab-->
+                                                <div class="tab-pane fade" id="kt_tab_pane_3" role="tabpanel">
+                                                    <%- include ('companyInfoTabs/fundingTab.html'); %>
+                                                </div>
+                                                <!--end:: Funding Tab-->
+
+                                                <div class="tab-pane fade" id="kt_tab_pane_4" role="tabpanel">
+                                                    <%- include ('companyInfoTabs/briefTab.html'); %>
+                                                    <section>
+                                                        <div style="margin-top:30px; margin-bottom: 30px;">
+                                                            <%- include ('partials/cardHeader.html', {title: 'Social Media and Contacts', subtitle: 'An overview of the company social media pressence and important contacts.', underline: true, singleLine: false}); %> 
+                                                        </div>
+                                                    
+                                                    <!--begin::Founder Card-->
+                                                  
+                                                    
+                                                    <!--end::Founder Card-->
+                                                    </section>
+                                                </div>
+                                           
+                                                <div class="tab-pane fade" id="kt_tab_pane_6" role="tabpanel">
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <fieldset class="border rounded-3 p-3">
+                                                                <legend class="float-none fs-7 fw-bold text-dark ps-5">Amazing founders:</legend>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Repeat founders or previous top tier (high growth) company leaders (builders)
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Domain experts with some level of seniority (Director +)
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Great team - they can (and have) attract high-quality teammates
+                                                                    </label>
+                                                                </div>
+
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Exceptional/relevant university education (e.g. Ivy League, Masters degree)
+                                                                    </label>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                            <fieldset class="border rounded-3 p-3">
+                                                                <legend class="float-none fs-7 fw-bold text-dark ps-5">Massive Business Opportunity:</legend>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Large whitespace opportunity/growing market
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Unique wedge/insight/IP
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Resilient during a recession/down market
+                                                                    </label>
+                                                                </div>
+
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        New/growing category (e.g. Generative AI)
+                                                                    </label>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+
+                                                        <div class="col-6 mt-5 mb-10">
+                                                            <fieldset class="border rounded-3 p-3">
+                                                                <legend class="float-none fs-7 fw-bold text-dark ps-5">Solid business fundamentals (i.e. traction and runway):</legend>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        $25K+ in pilot/customer contracts
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Ability to get to $250K+ during program
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Enough runway to deliver on that traction + 3 months post investor week
+                                                                    </label>
+                                                                </div>
+
+                                                                <div class="form-check m-3">
+                                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                                        Likelihood of raising $1M+ in institutional capital within 9 months
+                                                                    </label>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="kt_tab_pane_7" role="tabpanel">
+                                                    <% if(data.memos === undefined) { %>
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="d-flex mt-5">
+                                                                <button type="button" class="btn btn-primary w-200px h-45px" id="generateMemoBtn" onclick="_companyPg.generateMemo();">
+                                                                    <span class="indicator-label">
+                                                                        Generate Memo
+                                                                    </span>
+                                                                    <span class="indicator-progress">
+                                                                        Generating.. <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                    </span>
+                                                                </button>
+
+                                                                <select class="form-select form-select mb-3 ms-5 w-400px" name="prompttemplateoption" id="prompttemplateoption" data-control="select2" data-placeholder="Choose a Prompt Template" required>
+                                                                    <option></option>
+                                                                    <% for(var i = 0; i < data.usertemplates.length; i++) { %>
+                                                                    <option value="<%= data.usertemplates[i]['id'] %>"><%= data.usertemplates[i]['name'] %></option>
+                                                                    <% } %>
+                                                                    <% for(var i = 0; i < data.orgtemplates.length; i++) { %>
+                                                                    <option value="<%= data.orgtemplates[i]['id'] %>"><%= data.orgtemplates[i]['name'] %></option>
+                                                                    <% } %>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <% } %>
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div class="card mb-5 mb-xl-8">
+                                                                <div class="card-header fs-5">
+                                                                    <div class="card-title d-flex flex-column">
+                                                                        <!--begin::Amount-->
+                                                                        <span class="fs-3 fw-bold text-gray-900 me-2 lh-1 ls-n2">Investment Memo</span>
+                                                                        <!--end::Amount-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body d-flex flex-column justify-content-end pe-0">
+                                                                    <pre id="investmentmemo">
+                                                                    <% if(data.memoresponse && data.memoresponse.length > 0 && data.memoresponse.find(s => s.template_type === 'memo')) {%>
+                                                                    <%= data.memoresponse.find(s => s.template_type === 'memo')["response"] %>
+                                                                    <% } else { %>
+                                                                    No investment memo's found
+                                                                    <% } %>
+                                                                    </pre>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div class="card mb-5 mb-xl-8">
+                                                                <div class="card-header fs-5">
+                                                                    <div class="card-title d-flex flex-column">
+                                                                        <!--begin::Amount-->
+                                                                        <span class="fs-3 fw-bold text-gray-900 me-2 lh-1 ls-n2">Competitive Analysis</span>
+                                                                        <!--end::Amount-->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-body d-flex flex-column justify-content-end pe-0">
+                                                                    <pre id="compmemo">
+                                                                    <% if(data.memoresponse && data.memoresponse.length > 0 && data.memoresponse.find(s => s.template_type === 'comp')) {%>
+                                                                    <%= data.memoresponse.find(s => s.template_type === 'comp')["response"] %>
+                                                                    <% } else { %>
+                                                                    No Competitive Analysis found.
+                                                                    <% } %>
+                                                                    </pre>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end:: Tabs Content-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end::Navbar-->
+
+                         
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin::Footer-->
+                    <%- include('partials/footer.html'); %>
+                    <!--end::Footer-->
+                </div>
+                <!--end:::Main-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <i class="ki-outline ki-arrow-up"></i>
+    </div>
+    <!--end::Scrolltop-->
+
+    <div id="kt_drawer_example_dismiss"
+         class="bg-white"
+         data-kt-drawer="true"
+         data-kt-drawer-activate="true"
+         data-kt-drawer-toggle="#kt_drawer_example_dismiss_button"
+         data-kt-drawer-close="#kt_drawer_example_dismiss_close"
+         data-kt-drawer-overlay="true"
+         data-kt-drawer-width="500px"
+         style="max-width: 500px;">
+
+
+    </div>
+    <script type="text/javascript">
+        var _companyOverview = <%- JSON.stringify(data) %>;
+    </script>
+
+    <link href="/stylesheets/companyinfo.css" rel="stylesheet" />
+    <link href="/stylesheets/human.css" rel="stylesheet" />
+    <script src="/vendors/js/crel.js"></script>
+    <script src="/vendors/js/json.human.js"></script>
+    <script src="/js/company.js"></script>
+
+</body>
+<!--end::Body-->
+</html>

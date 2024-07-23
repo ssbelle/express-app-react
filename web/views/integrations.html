@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<!--begin::Head-->
+<head>
+    <%- include('partials/head.html'); %>
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_app_body" data-kt-app-header-fixed="true" data-kt-app-header-fixed-mobile="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-sidebar-stacked="true" data-kt-app-toolbar-enabled="true" class="app-default">
+    <!--begin::App-->
+    <div class="d-flex flex-column flex-root app-root" id="kt_app_root">
+        <!--begin::Page-->
+        <div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+            <%- include('partials/header.html'); %>
+            <!--begin::Wrapper-->
+            <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+                <!--begin::Sidebar-->
+                <div id="kt_app_sidebar" class="app-sidebar" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="auto" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
+                    <!--begin::Sidebar primary-->
+                    <%- include('partials/sidebar.html'); %>
+                    <!--end::Sidebar primary-->
+                </div>
+                <!--end::Sidebar-->
+                <!--begin::Main-->
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    <!--begin::Content wrapper-->
+                    <div class="d-flex flex-column flex-column-fluid">
+                        <!--begin::Content-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid pt-1">
+                            <!--begin::Content container-->
+                            <div id="kt_app_content_container" class="app-container container-fluid pt-4">
+                                <div class="card mb-4 mb-xxl-4">
+                                    <!--begin::Header-->
+                                    <div class="card-header">
+                                        <!--begin::Title-->
+                                        <div class="card-title">
+                                            <h3 class="fs-5">Integration Overview</h3>
+                                        </div>
+                                        <!--end::Title-->
+                                    </div>
+                                    <!--end::Header-->
+                                    <!--begin::Body-->
+                                    <div class="card-body py-5">
+                                        <!--begin::Row-->
+                                        <div class="row">
+                                            <!--begin::Col-->
+                                            <div class="col-md-6 pb-10 pb-lg-0">
+                                                <p class="fs-7 fw-semibold text-gray-600 py-2">
+                                                    Integrate with your current platforms to automate your process.
+                                                </p>
+                                            </div>
+                                            <!--end::Col-->
+                                        </div>
+                                        <!--end::Row-->
+                                    </div>
+                                    <!--end::Body-->
+                                </div>
+                                <div class="card card-flush mb-xxl-10">
+                                    <form class="form w-100" id="kt_ingegration_form" action="/auth/user" method="post">
+                                        <!--begin::Body-->
+                                        <div class="card-body">
+                                            <div class="d-flex flex-column flex-md-row rounded border p-10">
+                                                <ul class="nav nav-tabs nav-pills flex-row border-0 flex-md-column me-5 mb-3 mb-md-0 fs-6 min-w-lg-200px">
+                                                    <li class="nav-item w-100 me-0 mb-md-2 mt-5">
+                                                        <a class="nav-link w-100 btn btn-flex btn-active-light-info active" data-bs-toggle="tab" href="#kt_vtab_pane_1">
+                                                            <span class="svg-icon fs-2"><svg>...</svg></span>
+                                                            <span class="d-flex flex-column align-items-start">
+                                                                <img alt="" style="width: 90px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Airtable_Logo.svg/2560px-Airtable_Logo.svg.png" class="">
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item mt-5   w-100 me-0 mb-md-2">
+                                                        <a class="nav-link w-100 btn btn-flex btn-active-light-primary" data-bs-toggle="tab" href="#kt_vtab_pane_gdrive">
+                                                            <span class="svg-icon fs-2"><svg>...</svg></span>
+                                                            <span class="d-flex flex-column align-items-start">
+                                                                <img alt="" style="width: 90px;" src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Google_Drive_-_New_Logo.png" class="">
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item mt-5  w-100 me-0 mb-md-2 opacity-20 disabled">
+                                                        <a class="nav-link w-100 active btn btn-flex btn-active-light-info" data-bs-toggle="tab" href="#kt_vtab_pane_2">
+                                                            <span class="svg-icon fs-2"><svg>...</svg></span>
+                                                            <span class="d-flex flex-column align-items-start">
+                                                                <img alt="" style="width: 90px;" src="https://cdn.worldvectorlogo.com/logos/typeform.svg" class="">
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item w-100 mt-5   w-100 me-0 mb-md-2 opacity-20 disabled">
+                                                        <a class="nav-link w-100 btn btn-flex btn-active-light-danger" data-bs-toggle="tab" href="#kt_vtab_pane_2">
+                                                            <span class="svg-icon fs-2"><svg>...</svg></span>
+                                                            <span class="d-flex flex-column align-items-start">
+                                                                <img alt="" style="width: 90px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/HubSpot_Logo.svg/2560px-HubSpot_Logo.svg.png" class="">
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="nav-item w-100 mt-5  w-100 me-0 mb-md-2 opacity-20 disabled">
+                                                        <a class="nav-link w-100 btn btn-flex btn-active-light-primary" data-bs-toggle="tab" href="#kt_vtab_pane_2">
+                                                            <span class="svg-icon fs-2"><svg>...</svg></span>
+                                                            <span class="d-flex flex-column align-items-start">
+                                                                <img alt="" style="width: 90px;" src="https://assets-global.website-files.com/6372644369a530caa8c39dfc/6375427ad0fd91028b655a3b_Affinity%20Logo%20Colour.svg" class="">
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+                                                <div class="tab-content w-100 pt-4" id="myTabContent">
+                                                    <div class="tab-pane fade show active" id="kt_vtab_pane_1" role="tabpanel">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="scroll-y me-n7 pe-7" id="kt_modal_create_api_key_scroll">
+                                                                    <!--begin::Input group-->
+                                                                    <div class="d-flex flex-column mb-5 fv-row fv-plugins-icon-container">
+                                                                        <!--begin::Label-->
+                                                                        <label class="fs-5 fw-semibold mb-2">Access Token</label>
+                                                                        <!--end::Label-->
+                                                                        <!--begin::Input-->
+                                                                        <input type="text" class="form-control form-control-solid" placeholder="Airtable Access Token" id="airtableaccesstoken" name="airtableaccesstoken">
+                                                                        <!--end::Input-->
+                                                                        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                                                        <button type="submit" class="btn btn-lg btn-primary mt-5 w-150px" name="saveintegration" data-kt-stepper-action="submit">
+                                                                            <span class="indicator-label">
+                                                                                Submit
+                                                                            </span>
+                                                                            <span class="indicator-progress">
+                                                                                Saving... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                            </span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <!--end::Input group-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <article class="PageContainer PageContainer--narrow mt4">
+                                                                    <!--begin::Notice-->
+                                                                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-10 p-6">
+                                                                        <!--begin::Icon-->
+                                                                        <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>        <!--end::Icon-->
+                                                                        <!--begin::Wrapper-->
+                                                                        <div class="d-flex flex-stack flex-grow-1 ">
+                                                                            <!--begin::Content-->
+                                                                            <div class=" fw-semibold">
+                                                                                <div class="fs-6 text-gray-700 ">Find or create your Airtable's API access tokens over <a href="https://airtable.com/create/tokens">here</a></div>
+                                                                            </div>
+                                                                            <!--end::Content-->
+
+                                                                        </div>
+                                                                        <!--end::Wrapper-->
+                                                                    </div>
+                                                                    <!--end::Notice-->
+                                                                    <div class="ArticleContent line-height-5 StylizedIntro">
+                                                                        <h1 class="AnchorIcon-parent">Access tokens</h1><p>
+                                                                            Access tokens are used to authenticate requests to Airtable's API from Vanse
+                                                                        </p><p>
+                                                                            Access tokens act as your user account, and should be kept secret and not shared with any third-party services or integrations. Please make sure admin of Airtable is creating these tokens.
+                                                                        </p>
+                                                                        <p>
+                                                                            The access tokens panel can be accessed at <a href="https://airtable.com/create/tokens" class="focus-visible strong link text-blue">/create/tokens</a>. Here, you can
+                                                                            create new tokens and manage your existing tokens.
+                                                                        </p><h2 class="AnchorIcon-parent">Creating a token</h2><ol>
+                                                                            <li><p>From <a href="https://airtable.com/create/tokens" class="focus-visible strong link text-blue">/create/tokens</a>, click the "Create new token"" button to create a new access token.</p></li>
+                                                                            <li><p>Give your token a unique name (ex: VanseAI). This name will be visible in record revision history.</p></li>
+                                                                            <li>
+                                                                                <p>Choose the following <b>scopes</b> to grant to your token. This controls what API endpoints the token will be able to use.</p>
+                                                                                <blockquote>
+                                                                                    * data.records:read<br />
+                                                                                    * schema.bases:read
+                                                                                </blockquote>
+                                                                            </li>
+                                                                            <li>
+                                                                                <p>Click "add a base" to grant the token access to a base (tables) or workspace.</p><p>
+                                                                                    You can grant access to any combination and number of bases and workspaces. You can also grant access to all workspaces
+                                                                                    and bases under your account. Keep in mind that the token will only be able to read and write data within the bases and
+                                                                                    workspaces that have been assigned to it.
+                                                                                </p>
+                                                                            </li>
+                                                                            <li><p>Once your token is created, we will only show it to you once, so we encourage you to copy it to your clipboard and store it somewhere safe. While you will be able to manage it in <a href="https://airtable.com/create/tokens" class="focus-visible strong link text-blue">/create/tokens</a>, the sensitive token itself is not stored for security purposes.</p></li>
+                                                                        </ol><p>
+                                                                            If you are an enterprise admin, you can also create a access token for a service account from the Admin Panel - refer to this <a href="https://support.airtable.com/docs/service-accounts-overview" class="focus-visible strong link text-blue">support article</a> for details.
+                                                                        </p>
+                                                                        <h3 class="AnchorIcon-parent">Deleting tokens</h3><p>You can delete tokens from the access tokens panel or from the detail page for a token.</p><p>
+                                                                            You will be prompted before fully deleting the token. After the token has been deleted, any API requests that attempt to
+                                                                            use the token will be rejected.
+                                                                        </p><p>You can also bulk delete tokens using the checkboxes on <a href="https://airtable.com/create/tokens" class="focus-visible strong link text-blue">/create/tokens</a>.</p>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="tab-pane fade show" id="kt_vtab_pane_gdrive" role="tabpanel">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <div class="scroll-y me-n7 pe-7" id="kt_modal_create_api_key_scroll">
+                                                                    <!--begin::Input group-->
+                                                                    <div class="d-flex flex-column mb-5 fv-row fv-plugins-icon-container">
+                                                                        <!--begin::Label-->
+                                                                        <label class="fs-5 fw-semibold mb-2">Google Service Account info</label>
+                                                                        <!--end::Label-->
+                                                                        <!--begin::Input-->
+                                                                        <textarea class="form-control form-control-solid" id="gdrivejson" name="gdrivejson" placeholder="Service account JSON" rows="7"></textarea>
+                                                                        <!--end::Input-->
+                                                                        <div class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"></div>
+                                                                        <button type="submit" class="btn btn-lg btn-primary mt-5 w-150px" name="saveintegration" data-kt-stepper-action="submit">
+                                                                            <span class="indicator-label">
+                                                                                Submit
+                                                                            </span>
+                                                                            <span class="indicator-progress">
+                                                                                Saving... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                                                            </span>
+                                                                        </button>
+                                                                    </div>
+                                                                    <!--end::Input group-->
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <article class="PageContainer PageContainer--narrow mt4">
+                                                                    <!--begin::Notice-->
+                                                                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-10 p-6">
+                                                                        <!--begin::Icon-->
+                                                                        <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>        <!--end::Icon-->
+                                                                        <!--begin::Wrapper-->
+                                                                        <div class="d-flex flex-stack flex-grow-1 ">
+                                                                            <!--begin::Content-->
+                                                                            <div class=" fw-semibold">
+                                                                                <div class="fs-6 text-gray-700 ">How to access Google Drive using a service account JSON file</div>
+                                                                            </div>
+                                                                            <!--end::Content-->
+
+                                                                        </div>
+                                                                        <!--end::Wrapper-->
+                                                                    </div>
+                                                                    <!--end::Notice-->
+                                                                    <div class="ArticleContent line-height-5 StylizedIntro">
+                                                                        <h2 class="AnchorIcon-parent">Before you begin</h2>
+                                                                        <ol>
+                                                                            <li><p>A Google account has already been signed up for using Google Drive.</p></li>
+                                                                            <li><p>Go to <a href="https://console.developers.google.com/">Google API Console</a> and create a new one "VanseAI"</p></li>
+                                                                            <li>
+                                                                                <p>Go to the Library page and in the right panel, find Google Drive API and enable the Google Drive API that allows you to access resources from Google Drive.</p>
+                                                                            </li>
+                                                                        </ol>
+
+                                                                        <h3 class="AnchorIcon-parent">Procedure</h3>
+                                                                        <ol>
+                                                                            <li><p>Go to <a href="https://console.developers.google.com/">Google API Console</a></p></li>
+                                                                            <li><p>Open the <a href="https://console.developers.google.com/permissions/serviceaccounts">Service accounts</a> page. If prompted, select your project (ex: VanseAI).</p></li>
+                                                                            <li><p>Click CREATE SERVICE ACCOUNT.</p></li>
+                                                                            <li><p>In the Create service account window, type a name for the service account, select Furnish a new private key and then the key type JSON. Leave all options as is.</p></li>
+                                                                            <li><p>Click Create. In the pop-up window, choose a folder and click Save to store your service account JSON file securely. </p></li>
+                                                                            <li><p>Copy the content of the file and paste it in the textbox over here.</p></li>
+                                                                        </ol>
+                                                                    </div>
+                                                                </article>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="tab-pane fade" id="kt_vtab_pane_2" role="tabpanel">
+                                                        <!--begin::Notice-->
+                                                        <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed mb-10 p-6">
+                                                            <!--begin::Icon-->
+                                                            <i class="ki-outline ki-information fs-2tx text-warning me-4"></i>        <!--end::Icon-->
+                                                            <!--begin::Wrapper-->
+                                                            <div class="d-flex flex-stack flex-grow-1 ">
+                                                                <!--begin::Content-->
+                                                                <div class=" fw-semibold">
+                                                                    <div class="fs-6 text-gray-700 ">Coming Soon</div>
+                                                                </div>
+                                                                <!--end::Content-->
+
+                                                            </div>
+                                                            <!--end::Wrapper-->
+                                                        </div>
+                                                        <!--end::Notice-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--begin::Footer-->
+                    <%- include('partials/footer.html'); %>
+                    <!--end::Footer-->
+                </div>
+                <!--end:::Main-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+        <!--end::Page-->
+    </div>
+
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <i class="ki-outline ki-arrow-up"></i>
+    </div>
+    <!--end::Scrolltop-->
+    <script type="text/javascript">
+        var button = document.querySelector(".saveintegration");
+        button.addEventListener("click", function () {
+            // Activate indicator
+            button.setAttribute("data-kt-indicator", "on");
+            return true;
+        });
+    </script>
+</body>
+<!--end::Body-->
+</html>

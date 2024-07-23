@@ -1,0 +1,188 @@
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header col-12 w-100">
+            <!--begin::Advance form-->
+            <div id="kt_accordion_1_body_4" class="" aria-labelledby="kt_accordion_1_header_4" data-bs-parent="#kt_accordion_1">
+               
+                    <!--begin::Advance form-->
+                    <div id="kt_advanced_search_form">
+                        <div class="col-12">
+                            <!--begin::Row-->
+                            <div class="row modal-body">
+                                <!--begin::Col-->
+                                <div class="col-6 ">
+                                    <fieldset class="">
+                                        <legend class="float-none fs-7 fw-bold text-dark">By Company Categories</legend>
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-45);">
+                                            <span class="col-6">Customer type</span>
+                                            <select class="form-select form-select-sm form-select-solid" id="kt_customertype" name="searchtags" multiple="multiple"></select>
+                                        </div>
+                                        <div class="d-flex align-items-center" style="margin-top: var(--size-45);">
+                                            <span class="col-6">Industries/Sectors</span>
+                                            <select class="form-select form-select-sm form-select-solid" id="kt_industry" name="searchtags" multiple="multiple">
+                                                <option selected value="90">FinTech</option>
+                                            </select>
+                                        </div>
+                                    </fieldset>
+                                    <div class="col-6" style="border-bottom: 1px solid var(--tertiary-format-grey-color); margin: 20px 0; width: 100%;"></div>
+                                    <fieldset class="">
+                                        <legend class="float-none fs-7 fw-bold text-dark">By Company Execs</legend>
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-45);">
+                                            <span class="col-6">Company Exec. University</span>
+                                            <select id="kt_universities" class="form-select form-select-sm form-select-solid" name="universities" data-placeholder="Universities lookup" multiple="multiple"></select>
+                                        </div>
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-45);">
+                                            <span class="col-6">Company Exec. Highlights</span>
+                                            <select id="kt_peoplehightlight" class="form-select form-select-sm form-select-solid" name="peoplehightlight" data-placeholder="Exec Highlights" multiple="multiple"></select>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <!--end::Col-->
+                                <div class="col-6">
+                                    <fieldset class="">
+                                        <legend class="float-none fs-7 fw-bold text-dark ">By Company Info</legend>
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-5">Total Headcount</span>
+                                            <div class="nav-group nav-group-fluid col-4 input-group-sm" style="padding: 0; margin-left: -20px; margin-right: 10px;">
+                                                <!--begin::Option-->
+                                                <label>
+                                                    <input type="radio" class="btn-check input-group-sm" name="headcounttype" value="0" checked="checked" />
+                                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bold ">Less</span>
+                                                </label>
+                                                <!--end::Option-->
+                                                <!--begin::Option-->
+                                                <label>
+                                                    <input type="radio" class="btn-check input-group-sm" name="headcounttype" value="1" />
+                                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bold ">Greater</span>
+                                                </label>
+                                            </div>
+                                                <!--end::Option-->
+                                                <!--begin::Select-->
+                                            <div class="input-group w-150px col-3 input-group-sm" style="padding:0px; max-height: 42px;">
+                                                <span class="input-group-text" id="basic-addon1" style="max-height:42px;">
+                                                    <i class="ki-duotone ki-profile-user fs-1" ><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                                </span>
+                                                <input min="1" type="number" name="headcount" class="form-control input-group-sm" placeholder="than 10" aria-label="headcount" aria-describedby="basic-addon1" style="max-height:42px;">
+                                            </div>
+                                                <!--end::Select-->
+                                        
+                                        </div>
+
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-4">Company Headcount</span>
+                                            <div>
+                                                <!--begin::Option-->
+                                                <select class="form-select form-select form-select-sm col-3" aria-label="company-headcount" name="headcounttraction_type" style="margin-left: -20px; margin-right: 10px;">
+                                                    <option selected value="90">Grew Quarterly by</option>
+                                                    <option value="180">Grew Semi-Annually by</option>
+                                                    <option value="365">Grew Annually by</option>
+                                                </select>
+                                                <!--end::Option-->
+                                            </div>
+                                            <!--begin::Select-->
+                                            <div class="input-group w-150px col-3" style="padding: 0; margin: 0;">
+                                                <span class="input-group-text" style="max-height: 42px;">
+                                                    <i class="ki-duotone ki-profile-user fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                                </span>
+                                                <input type="number" min="1" class="form-control input-group-sm" style="max-height: 42px;" max="100000" name="headcounttraction" aria-label="Headcount Traction" placeholder="20%">
+                                            </div>
+                                            <!--end::Select-->
+                                        
+                                        </div>
+
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-5">Invested By</span>
+                                            <select class="form-select form-select-solid form-select-sm" name="searchinvestors" id="kt_investors" data-placeholder="Select One" multiple="multiple"></select>
+                                        </div>
+
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-5">HQ Location</span>
+                                            <select class="form-select form-select-solid form-select-sm" name="searchlocation" id="kt_location" data-placeholder="Select One" multiple="multiple"></select>
+                                        </div>
+
+
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-5">Founding Year</span>
+                                            <!--begin::Select-->
+                                            <div class="input-group input-group-sm" id="kt_td_picker_date_only" data-td-target-input="nearest" data-td-target-toggle="nearest">
+                                                <input id="kt_td_picker_date_only_input input-group-sm" type="text" class="form-control" name="foundingyear" data-td-target="#kt_td_picker_date_only" />
+                                                <span class="input-group-text" data-td-target="#kt_td_picker_date_only" data-td-toggle="datetimepicker">
+                                                    <i class="ki-duotone ki-calendar fs-2"><span class="path1"></span><span class="path2"></span></i>
+                                                </span>
+                                            </div>
+                                            <!--end::Select-->
+                                        </div>
+
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-5">Funding Round</span>
+                                            <!--begin::Select-->
+                                            <select class="form-select form-select-sm form-select-solid" id="kt_fundingrounds" name="fundingrounds" data-placeholder="Select One" multiple="multiple"></select>
+                                            <!--end::Select-->
+                                        </div>
+
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-5">Total Funding</span>
+                                            <div class="nav-group nav-group-fluid input-group-sm">
+                                                <!--begin::Option-->
+                                                <label>
+                                                    <input type="radio" class="btn-check input-group-sm" name="fundingtype" value="0" checked="checked" />
+                                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bold px-4">Less</span>
+                                                </label>
+                                                <!--end::Option-->
+                                                <!--begin::Option-->
+                                                <label>
+                                                    <input type="radio" class="btn-check input-group-sm" name="fundingtype" value="1" />
+                                                    <span class="btn btn-sm btn-color-muted btn-active btn-active-primary fw-bold px-4">Greater</span>
+                                                </label>
+                                                <!--end::Option-->
+                                            </div>
+                                            <!--begin::Select-->
+                                            <div class="input-group w-200px input-group-sm">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" min="1" class="form-control" name="funding" aria-label="Funding amount" placeholder="than 500,000">
+                                            </div>
+                                            <!--end::Select-->
+                                        </div>
+
+                                        <div class="d-flex align-items-center"  style="margin-top: var(--size-16);">
+                                            <span class="col-5">Website Traffic</span>
+                                            <div class="">
+                                                <!--begin::Option-->
+                                                <select class="form-select form-select-sm form-select mb-3" aria-label=".form-select-lg example" name="websitetraction_type">
+                                                    <option selected value="90">Grew Quarterly by</option>
+                                                    <option value="180">Grew Semi-Annually by</option>
+                                                    <option value="365">Grew Annually by</option>
+                                                </select>
+                                                <!--end::Option-->
+                                            </div>
+                                            <div class="input-group mt-5 m-auto w-150px">
+                                                <span class="input-group-text">
+                                                    <i class="ki-duotone ki-graph-up fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                                </span>
+                                                <input type="number" min="1" class="form-control" max="100000" name="websitetraction" aria-label="Traction Growth" placeholder="20%">
+                                            </div>
+                                        </div>
+
+                                    </fieldset>
+                            
+                                </div>
+                                <!--end::Col-->
+                            </div>
+                            <!--end::Row-->
+                
+                            <!--end::Row-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Clear</button>
+                                <button type="submit" id="advsearchsumitbtn" class="btn btn-primary">Apply</button>
+                            </div>
+                        </div>
+                        <!--end::Advance form-->
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

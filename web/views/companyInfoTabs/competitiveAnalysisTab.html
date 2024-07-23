@@ -1,0 +1,22 @@
+<!--begin:: Competitive Analysis Tab Content -->
+<section style="display: flex; flex-wrap: wrap; width: 100%; padding: 20px 0;">
+    <%- include ('../partials/tableCard.html', {contentType: 'company', tableData: data.mock.topCompetitorsData, headers: data.configs.companyTable.headers, columnSettings: data.configs.companyTable.columnSettings, tableTitle: data.configs.companyTable.cardHeaderCompany.title, subtitle: "", singleLine: false}); %>
+    
+    <section class="d-flex col-12" style="gap: 24px;">
+        <%- include('../partials/competitiveAnalysisCards/topCompaniesCard.html', {cardTitle: "Top Companies", cardData: data.mock.topCompaniesData, columnSetting: "col-6"}); %>
+        <%- include('../partials/competitiveAnalysisCards/fundingRoundsCard.html', {cardTitle: "Top Funding rounds in the last 2 years", cardData: data.mock.fundingRoundsData, cardColumnTitle:["Company", "Round Details"], columnSetting: "col-6"}); %>
+    </section>
+    <section class="d-flex col-12" style="gap: 24px;">
+        <%- include('../partials/competitiveAnalysisCards/topInvestorsCard.html', {cardTitle: "Top Investors", cardData: data.mock.topInvestorsData, cardColumnTitle: ["Stage", "Investor", "# Portfolio"], columnSetting: "col-6"}); %>
+        <%- include('../partials/competitiveAnalysisCards/topExitsCard.html', {cardTitle: "Top Exits within the last 10 years", cardData: data.mock.topExitsData, cardColumnTitle:["Type", "Company", "Acq. Price / IPO Mcap"], columnSetting: "col-6"}); %>
+    </section>
+    <section class="d-flex col-12" style="gap: 24px;">
+        <%- include('../partials/competitiveAnalysisCards/keyStatsCard.html', {cardTitle: "Key Stats", cardData: data.mock.keyStatsData, columnSetting: "col-6" }); %>
+        <%- include('../partials/competitiveAnalysisCards/scopeCard.html'); %>
+    </section>
+    <section class="d-flex col-12" style="gap: 24px;">
+        <%- include('../partials/charts/barAndLineChart.html', {cardTitle: "YoY Funding" }); %>
+        <%- include('../partials/charts/pyramidBarChart.html', {cardTitle: "# Companies by Stage" }); %>
+    </section>
+</section>
+<!--end:: Competitive Analysis Tab Content -->
